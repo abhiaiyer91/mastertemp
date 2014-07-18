@@ -1,0 +1,22 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta name="description" content="">
+        <meta name="author" content="Anthro.is">
+		{% if template == 'article' %}
+		<meta property="og:title" content="{{article.title}}">
+		<meta property="og:description" content="{{article.content | strip_html | truncate: 200}}">
+		<meta property="og:image" content="{{article.excerpt}}">
+		{% endif %}
+		{% if template == 'product' %}
+		<meta property="og:title" content="{{product.title}}">
+		<meta property="og:description" content="{{product.content | strip_html | truncate: 200}}">
+		<meta property="og:image" content="http:{{ product.featured_image | product_img_url: 'grande' }}">
+		{% endif %}
+
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:url" content="">
+        <meta name="twitter:title" content="">
+        <meta name="twitter:description" content="">
+        <meta name="twitter:image" content="">
+
+     

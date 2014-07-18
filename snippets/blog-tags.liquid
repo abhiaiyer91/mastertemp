@@ -1,0 +1,18 @@
+{% if blog.all_tags != blank %}
+<ul class="blog-list">
+{% if current_tags %}
+	<li><a href="{{ blog.url }}">All</a></li>
+{% elsif article %}
+	<li><a href="{{ blog.url }}">All</a></li>
+{% else %}
+	<li class="current"><a href="{{ collection.url }}">All</a></li>
+{% endif %}
+	{% for tag in blog.all_tags %}
+		{% if current_tags contains tag %}
+    		<li class="current">{{ tag | link_to_tag: tag }}</li>
+    	{% else %}
+			<li>{{ tag | link_to_tag: tag }}</li>
+    	{% endif %}
+	{% endfor %}
+</ul>
+{% endif %}

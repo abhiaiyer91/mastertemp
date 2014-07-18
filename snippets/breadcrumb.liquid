@@ -1,0 +1,14 @@
+
+<ul class="breadcrumb text-right">
+{% if template contains "product" %}
+	<li><a href="/collections/all-products">ALL GEAR</a></li>{% endif %}{% if template contains "product" %}{% if collection and collection.handle %}
+	<li>{{ collection.title | link_to: collection.url }}</li>{% if settings.show_collection_tags and product.tags.size > 0 %}
+	<li><a href="{{ collection.url }}/{{ product.tags.first | handle }}">{{ product.tags.first }}</a></li>{% endif %}{% endif %}
+	<li>{{ product.title }}</li>{% elsif template == "article" %}
+	<li>{{ blog.title | link_to: blog.url }}</li>
+	<li>{{ article.title }}</li>{% elsif template contains "collection" %}{% if current_tags.size > 0 %}
+	<li>{{ collection.title | link_to: collection.url }}</li>
+	<li>{{ current_tags.first }}</li>{% else %}
+	<li>{{ page_title }}</li>{% endif %}{% else %}
+	<li>{{ page_title }}</li>{% endif %}
+</ul>

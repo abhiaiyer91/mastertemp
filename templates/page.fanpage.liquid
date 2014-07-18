@@ -1,0 +1,88 @@
+<section class="fans">
+	<h2>{{settings.athlete | upcase}} <span>{{page.title | upcase}}</span><br/>{% include 'divider' %}</h2>
+
+	<div class="container">
+		{{page.content}}
+	
+		<div class="row">
+			<div class="col-sm-3">
+				<!-- AD SPACE -->
+			</div>
+			<div class="col-sm-6">
+				<img src="{{'fan_main}}" alt="" class="img-responsive text-center">
+			</div>
+			<div class="col-sm-3">
+				<!-- AD SPACE -->
+			</div>
+		</div>
+	</div>
+</section>
+	
+<section class="fan-friday">
+	<div class="container">
+		<h2><span>FAN</span> FRIDAY<br/>{% include 'divider' %}</h2>
+		<div class="fancarousel">
+			{% if settings.fan1_show %}
+			<div class="text-center">
+				<img src="{{ 'fan1}}" alt="">
+			</div>
+			{% endif %}
+			{% if settings.fan2_show %}			
+			<div class="text-center">
+				<img src="{{ 'fan2}}" alt="">
+			</div>
+			{% endif %}
+			{% if settings.fan3_show %}
+			<div class="text-center">
+				<img src="{{ settings.fan3_url}}" alt="">
+			</div>
+			{% endif %}
+			{% if settings.fan4_show %}			
+			<div class="text-center">
+				<img src="{{ settings.fan4_url}}" alt="">
+			</div>
+			{% endif %}
+			{% if settings.fan5_show %}
+			<div class="text-center">
+				<img src="{{ settings.fan5_url}}" alt="">
+			</div>
+			{% endif %}
+			{% if settings.fan6_show %}			
+			<div class="text-center">
+				<img src="{{ settings.fan6_url}}" alt="">
+			</div>
+			{% endif %}	
+			{% if settings.fan7_show %}			
+			<div class="text-center">
+				<img src="{{ settings.fan7_url}}" alt="">
+			</div>
+			{% endif %}
+			{% if settings.fan8_show %}
+			<div class="text-center">
+				<img src="{{ settings.fan8_url}}" alt="">
+			</div>
+			{% endif %}
+			{% if settings.fan9_show %}			
+			<div class="text-center">
+				<img src="{{ settings.fan9_url}}" alt="">
+			</div>
+			{% endif %}							
+		</div>
+	</div>
+</section>
+
+<section class="fan-insta" ng-controller="FanCtrl">
+	<div class="container">
+		<h2>#{{settings.athlete_abbr}}<span>Fans</span><br>{% include 'divider' %}</h2>
+		<div ng-init="search('{{settings.athlete_abbr}}')"></div>
+		{% raw %}
+		<div class="col-sm-3 fan-col" ng-repeat="fan in fans">
+			<img ng-src="{{fan.images.standard_resolution.url}}" alt="" class="img-responsive fan-img">
+		</div>
+		{% endraw %}
+		<div id="disqus_thread" class="pad"></div>
+	</div>
+</section>
+
+
+

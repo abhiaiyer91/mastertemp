@@ -1,0 +1,18 @@
+  <div class="col-sm-6">
+    <div id="slider" class="flexslider">
+      <ul class="slides">
+                    {% for image in product.images %}
+                      <li><img src="{{ image.src | product_img_url: 'original' }}" data-zoom-image="{{ image.src | product_img_url: 'grande' }}" class="img-responsive zoom" /></li>
+                    {% endfor %}
+        <!-- items mirrored twice, total of 12 -->
+      </ul>
+    </div>
+    <div id="carousel" class="hidden-xs flexslider">
+      <ul class="slides">
+                    {% for image in product.images %}
+                      <li class="col-sm-3"><img src="{{ image.src | product_img_url: 'original' }}" class="img-responsive" /></li>
+                    {% endfor %}
+        <!-- items mirrored twice, total of 12 -->
+      </ul>
+    </div>
+  </div>

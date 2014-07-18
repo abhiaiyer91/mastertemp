@@ -1,0 +1,90 @@
+<!-- OBERTA_AD -->
+<!-- <br>
+<div class="container">
+    <div class="col-xs-12 hidden-xs text-center">
+    
+    <div id='div-gpt-ad-1399407107124-1'>
+    <script type='text/javascript'>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1399407107124-1'); });
+    </script>
+    </div>
+    </div>
+</div> -->
+
+<!-- ObertoTiles -->
+<!-- <div id='div-gpt-ad-1399407738878-0' class="visible-xs col-xs-12 text-center">
+<script type='text/javascript'>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1399407738878-0'); });
+</script>
+</div>
+
+
+<br> -->
+
+{% paginate search.results by 6 %}
+
+<div class="container">
+  <section>
+    <div class="text-center uppercase">
+    <h2 class="padding-top24 padding-bottom24">Search <span>{{settings.athlete_abbr}}</span><br>{% include 'divider' %}</h2>
+    </div>
+
+    <div class="text-center search-input">
+      <form action="/search" method="get" class="padding-bottom48" role="search">
+
+          <input type="text" name="q" value="{{ search.terms | escape }}" class="width65"/>
+          <input type="submit" value="Search" class="button subHeadBtn" id="width40"/>
+          <input type="hidden" name="type" value="blog" />
+
+      </form>
+    </div>
+  </section>
+
+{% if search.performed %}
+    {% if search.results_count == 0 %}
+      <p>Your search for "{{ search.terms }}" did not yield any results.</p>
+    {% else %}
+      {% for item in search.results %}
+        {% if item.template == 'page' %}
+
+        {% else %}
+      <div class"row">
+        <div class="col-sm-4">
+          <div class="search-result clearfix">
+            <h3 class="bebas">{{ item.title | link_to: item.url }}</h3>
+
+            {% if item.featured_image %}
+
+              <div>
+                <a href="{{ item.url }}" title="{{ item.title | escape }}">
+                  <div class="text-center">
+                  {{ item.featured_image.src | product_img_url: 'medium' | img_tag: 'item.featured_image.alt', 'img-thumbnail'}}
+                  </div>
+                </a>
+
+              </div>
+              <div class="search-text left">{{ item.content | strip_html | truncatewords: 150 | highlight: search.terms }}</div>
+            {% elsif item.excerpt %}
+              <div class="">
+              <img src="{{item.excerpt}}" class="img-responsive"/>
+              </div>
+                    <p>{{ item.content | strip_html | truncatewords: 50 | highlight: search.terms }}</p>
+                    {% else %}
+                    <p>{{ item.content | strip_html | truncatewords: 50 | highlight: search.terms }}</p>
+            {% endif %}
+          </div>
+        </div>
+       </div>
+       {%endif%}
+        {% endfor %}
+    {% endif %}
+{% endif %}
+
+{% if paginate.pages > 1 %}
+<div class="pagination">
+  {{ paginate | default_pagination }}
+</div>
+{% endif %}
+</div>
+
+{% endpaginate %}

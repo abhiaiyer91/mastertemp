@@ -1,0 +1,28 @@
+<div class="table-responsive">
+    <table class="table" ng-controller="SizingCtrl">
+
+        {% if product.tags contains 'premium' %}
+            {% include 'premium-sizing' %}
+        {% elsif product.tags contains 'perfect' %}
+            {% include 'perfect-sizing' %}
+  
+        {% elsif product.tags contains 'slub' %}
+            {% include 'slub-sizing' %}
+
+        {% elsif product.tags contains 'bf' %}
+            {% include 'bf-sizing' %}
+     
+        {% elsif product.tags contains 'hoodie' %}
+            {% include 'hoodie-sizing' %}
+     
+        {% elsif product.tags contains 'silicone' %}
+            {% include 'sil-sizing' %}
+     
+        {% elsif product.tags contains 'ringer' %}
+            {% include 'ringer-sizing' %}
+     
+        {% elsif product.tags contains 'cut' %}
+            {% include 'cut-sizing' %}
+        {% endif %}                                    
+    </table>
+</div>

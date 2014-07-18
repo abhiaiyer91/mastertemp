@@ -1,0 +1,26 @@
+{% if settings.pitch_columns != 'none' %}
+<ul class="product-pitch {{ settings.pitch_columns }}">
+	<li{% if settings.pitch_columns != 'full' %} class="first"{% endif %}>
+		<h3>{{ settings.pitch_title1 | escape }}</h3>
+		<p>{{ settings.pitch_description1 | escape }}</p>
+	</li>
+	{% if settings.pitch_columns != 'full' %}
+	<li{% if settings.pitch_columns == 'half' %} class="last"{% endif %}>
+		<h3>{{ settings.pitch_title2 | escape }}</h3>
+		<p>{{ settings.pitch_description2 | escape }}</p>
+	</li>
+	{% if settings.pitch_columns != 'full' %}{% if settings.pitch_columns != 'half' %}
+	<li{% if settings.pitch_columns == 'third' %} class="last"{% endif %}>
+		<h3>{{ settings.pitch_title3 | escape }}</h3>
+		<p>{{ settings.pitch_description3 | escape }}</p>
+	</li>
+	{% if settings.pitch_columns == 'quarter' %}
+	<li class="last">
+		<h3>{{ settings.pitch_title4 | escape }}</h3>
+		<p>{{ settings.pitch_description4 | escape }}</p>
+	</li>
+	{% endif %}
+	{% endif %}{% endif %}
+	{% endif %}
+</ul>
+{% endif %}

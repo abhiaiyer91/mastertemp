@@ -1,0 +1,46 @@
+<div id="header-wrap" >
+	<div class="heada grey-texture">
+		<div class="container">
+			<div class="pull-left">
+				{% if customer %}
+				<div class="pull-left header-button">
+					<a href="/account">Hello, {{ customer.first_name }}!</a>
+				</div>
+				{% else %}
+				<div class="pull-left header-button">
+					<a href="/account/login">LOGIN | CREATE ACCOUNT</a>
+				</div>
+				{% endif %}
+				{% if customer %}
+				<div class="pull-left header-button">
+					{{ 'Log out' | customer_logout_link }}
+				</div>
+				{% endif %}
+
+			</div>
+
+			<div class="pull-right text-center">
+				<div class="pull-right shop-button-header content-right">
+					<a href="/cart">
+						<i class="fa fa-shopping-cart"></i><span>{{ cart.total_price | money }}</span>
+					</a>
+
+				</div>
+			</div>
+
+			<div class="pull-right shop-button-header hidden-xs">
+				<form action="/search" method="get" role="search">
+					<ul class="search-form">
+						<li>
+							<label for="search" class="searchbar">
+								<img src="{{'search.png' | asset_url}}" alt="search" />
+							</label>
+						</li>
+						<li><input type="ser" name="q" id="search" placeholder="Type search terms and hit enter..."></li>
+					</ul>
+				</form>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>

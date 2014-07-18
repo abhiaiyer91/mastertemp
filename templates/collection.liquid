@@ -1,0 +1,72 @@
+<section>
+{% paginate collections.all-products.products by 100 %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12 text-center">
+			<h2>OFFICIAL <span>GEAR</span><br/>{% include 'divider' %}</h2>
+		</div>
+  </div>
+  <div class="row">
+      <div class="row">
+        <div class="col-sm-6">
+            <div class="hidden-xs">
+                
+            <ul >
+                  <li><h3 class="bebas pull-left"> Categories </h3></li>
+                  <li style="display:inline !important;" class="button hover-shadow white">
+                    {% if collection.handle %}
+                    <a href="/collections/{{ collection.handle }}{% if collection.sort_by %}?sort_by={{ collection.sort_by }}{% endif %}">All</a>
+                    {% elsif collection.current_type %}
+                    <a href="{{ collection.current_type | url_for_type | sort_by: collection.sort_by }}">All</a>
+                    {% elsif collection.current_vendor %}
+                    <a href="{{ collection.current_vendor | url_for_vendor | sort_by: collection.sort_by }}">All</a>
+                    {% endif %}
+                  </li>
+                  {% for tag in collection.all_tags %}
+                  {% if current_tags contains tag %}
+                  <li class="button hover-shadow white" style="display:inline !important;">
+                    {{ tag | link_to_remove_tag: tag }}
+                  </li>
+                  {% else %}
+                  <li style="display:inline !important;" class="button hover-shadow white">
+                    {{ tag | link_to_tag: tag }}
+                  </li>
+                  {% endif %}
+                  {% endfor %} 
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="col-sm-6">
+        <div class="sort-align pull-right">
+        <select id="sort-by">
+          <option value="manual">Sort Collection</option>
+          <option value="price-ascending">Price: Low to High</option>
+          <option value="price-descending">Price: High to Low</option>
+          <option value="title-ascending">A-Z</option>
+          <option value="title-descending">Z-A</option>
+          <option value="created-ascending">Oldest to Newest</option>
+          <option value="created-descending">Newest to Oldest</option>
+          <option value="best-selling">Best Selling</option>
+        </select>
+      </div>        
+
+        </div>
+      </div>
+
+      <div class="col-sm-12">
+            {% include 'item-list' %}
+      </div>
+
+
+
+
+	{% include 'paginations' %}
+
+</div>
+</div>
+
+{% endpaginate %}
+</section>

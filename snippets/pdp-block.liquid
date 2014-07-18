@@ -1,0 +1,10 @@
+
+<h2>{{product.title}}{% if product.tags contains 'sale' %}<span class="button smallGrey sale">SALE</span>{% endif %}</h2>
+
+<div class="row" id="product-section">
+  {% include 'product-image-app' %}
+
+  {% include 'product-detail-info' %}
+</div>
+
+<br/><br/><!-- end row -->

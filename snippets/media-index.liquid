@@ -1,0 +1,150 @@
+{% comment %}
+<!-- start work -->
+<section class="media-index">
+    <div class="container">
+    <h2>MY <span>MEDIA</span><br/>{% include 'divider' %}</h2>
+    <div class="more text-center"> <a href="/pages/media">VIEW ALL MEDIA</a></div>
+        <div class="row workColumnList">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 cat1 text-right">
+                <span class="media-title white">FEATURED IMAGES</span>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 cat2">
+                <a href="/pages/media" class="portfolioItem">
+                      {% if settings.logo_option1 == "image" %}
+                      <img src="{{ 'media1.jpg' | asset_url }}" alt="" class="img-responsive" />
+                      {% else %}
+                      <a href="/">{{ shop.name }}</a>
+                      {% endif %}
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 cat3">
+                <a href="/pages/media" class="portfolioItem">
+<!--                 <div class="overlay"><h4>SUPER BOWL</h4></div> -->
+                      {% if settings.logo_option2 == "image" %}
+                      <img src="{{ 'media2.jpg' | asset_url }}" alt="" class="img-responsive" />
+                      {% else %}
+                      {{ shop.name }}
+                      {% endif %}
+                </a>
+            </div>
+        </div>
+        <div class="row">
+        <div class="visible-sm visible-xs col-xs-12 cat1 cat2">
+                <span class="media-title white">FEATURED VIDEOS</span>
+            </div>
+            <div class="visible-md visible-lg"><br></div>
+            <div class="col-lg-4 col-md-6 col-xs-12 cat3 cat2">
+
+              {% if settings.video_option and settings.video_option != '' %}
+                  <div class="vendor">
+                  <iframe style="border:none;" src="{{ settings.video_option }}" allowfullscreen></iframe>
+                  </div>
+              {% else %}
+                      {{ shop.name }}
+              {% endif %}
+            </div>
+            <div class="col-lg-4 col-md-6 hidden-sm hidden-xs cat1 cat2">
+              {% if settings.video_option2 and settings.video_option2 != '' %}
+                  <div class="vendor">
+                  <iframe style="border:none;" src="{{ settings.video_option2 }}" allowfullscreen></iframe>
+                  </div>
+              {% else %}
+                      {{ shop.name }}
+              {% endif %}
+            </div>
+            <div class="col-lg-4 col-md-12 hidden-sm hidden-xs cat1 cat2">
+                <span class="media-title white">FEATURED VIDEOS</span>
+            </div>
+        </div><!-- end row -->
+        <br>
+        <div class="text-center"><a href="/pages/media" class="button subHeadBtn">VIEW MORE</a></div>
+    </div><!-- end work container -->
+</section><!-- end work section -->
+
+{%endcomment%}
+
+<!-- CODE FOR SLIDING INDEX -->
+<section>
+
+<div class="media-index1 grey-texture">
+  <div class="visible-xs">
+    <h3 class="text-center">{{settings.athlete}} <a href="/pages/media" style="font-size:inherit;"><span>MEDIA</span></a></h3>
+  </div>
+    <div class="row no-mar">
+    <div class="col-sm-9 no-pad" ng-controller="ModalYoutubeCtrl">
+      {% raw %}
+          <script type="text/ng-template" id="YoutubeContent.html">
+            <div class="modal-header">
+                <div class="row">
+                </div>
+            </div>
+            <div class="modal-content">
+                <div class="row">
+                  <iframe class="videoPost videoModal" style="border:none;" src={{trustSrc()}} allowfullscreen></iframe>
+                </div>
+            </div>
+          </script>
+      {% endraw %}
+      <div class="media-carousel">
+          <div>
+          {% if settings.new_media_video_show1 %}
+            <div class="vid-image">
+              <img class="width100" src="{{settings.new_media_img1_url}}" alt="">
+              <a ng-click="open('{{settings.new_media_video1}}')"><i class="fa fa-play fa-5x"></i></a>
+            </div>
+          {% else %}
+            <img class="width100" src="{{settings.new_media_img1_url}}" alt="">
+          {% endif %}
+          </div>
+          <div>
+          {% if settings.new_media_video_show2 %}
+            <div class="vid-image">
+              <img class="width100" src="{{settings.new_media_img2_url}}" alt="">
+              <a ng-click="open('{{settings.new_media_video2}}')"><i class="fa fa-play fa-5x"></i></a>
+            </div>
+          {% else %}
+            <img class="width100" src="{{settings.new_media_img2_url}}" alt="">
+          {% endif %}
+          </div>
+          <div>
+          {% if settings.new_media_video_show3 %}
+            <div class="vid-image">
+              <img class="width100" src="{{settings.new_media_img3_url}}" alt="">
+              <a ng-click="open('{{settings.new_media_video3}}')"><i class="fa fa-play fa-5x"></i></a>
+            </div>
+          {% else %}
+            <img class="width100" src="{{settings.new_media_img3_url}}" alt="">
+          {% endif %}
+          </div>
+          <div>
+          {% if settings.new_media_video_show4 %}
+            <div class="vid-image">
+              <img class="width100" src="{{settings.new_media_img4_url}}" alt="">
+              <a ng-click="open('{{settings.new_media_video4}}')"><i class="fa fa-play fa-5x"></i></a>
+            </div>
+          {% else %}
+            <img class="width100" src="{{settings.new_media_img4_url}}" alt="">
+          {% endif %}
+          </div>
+          <div>
+          {% if settings.new_media_video_show5 %}
+            <div class="vid-image">
+              <img class="width100" src="{{settings.new_media_img5_url}}" alt="">
+              <a ng-click="open('{{settings.new_media_video5}}')"><i class="fa fa-play fa-5x"></i></a>
+            </div>
+          {% else %}
+            <img class="width100" src="{{settings.new_media_img5_url}}" alt="">
+          {% endif %}
+          </div>
+        </div>
+    </div>
+    <div class="col-sm-3 hidden-xs">
+        <div class="middle-text">
+          <h2 class="text-center media-title white">{{settings.athlete_abbr}}<br> MEDIA</h2>
+          <h2 class="text-center media-title white"><a href="/pages/media" style="font-size:inherit;">VIEW ALL</a></h2>
+        </div>
+    </div>
+    </div>
+
+</div>
+</section>

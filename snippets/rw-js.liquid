@@ -1,0 +1,33 @@
+{% if template contains 'product' %}
+<!-- BEGIN: Rating-Widget -->
+<div class="rw-js-container">
+    <script type="text/javascript">
+        // Async Rating-Widget initialization.
+        function RW_Async_Init(){
+            {% include 'rw-settings' %}
+            {% include 'rw-settings-custom' %}
+            
+            // Init ratings settings.
+            RW.init(settings);
+
+            // Adds rating identification for analytics.
+            RW.initRating("{{ product.id }}", ratingSettings);
+
+            RW.render();
+        }
+
+        // Append Rating-Widget JavaScript library.
+        if (typeof(RW) == "undefined"){
+            (function(){
+                var rw = document.createElement("script"),
+                        d = new Date(), ck = "Y" + d.getFullYear() + "M" + d.getMonth() + "D" + d.getDate();
+                rw.type = "text/javascript"; rw.async = true;
+                rw.src = "http://js.rating-widget.com/external.min.js?v=250&ck=" + ck;
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(rw, s);
+            })();
+        }
+    </script>
+</div>
+<!-- END: Rating-Widget -->
+{% endif %}

@@ -1,0 +1,56 @@
+{% if blog.comments_enabled? %}
+<div id="comments">
+{% if article.comments_count > 0 %}
+<h3>Comments</h3>
+<ul class="comments">
+{% paginate article.comments by 10 %}
+{% for comment in article.comments %}
+	<li>
+		<p><strong>Posted by {{ comment.author }}</strong> on <em>{{ comment.created_at | date: "%b %d, %Y" }}</em></p>
+		{{ comment.content }}
+  	</li>
+{% endfor %}
+</ul>
+{% if paginate.pages > 1 %}
+{% include 'pagination' %}
+{% endif %}
+{% endpaginate %}
+{% endif %}
+
+{% form article %}
+<h3>Leave a comment</h3>
+{% if form.posted_successfully? %}
+{% if blog.moderated? %}
+<div class="notice">
+	<p>You have successfully posted your comment. Please wait for the blog owner to review it.</p>
+</div>
+{% else %}
+<div class="notice">
+	<p>You have successfully posted your comment.</p>
+</div>
+{% endif %}
+{% endif %}
+{% if form.errors %}
+	<div class="error notice">
+		<p>Sorry. Not all the fields have been filled out correctly.</p>
+	</div>
+{% endif %}
+<p{% if form.errors contains 'author' %} class="error"{% endif %}>
+	<label for="comment_author">Your name</label>
+	<input type="text" id="comment_author" name="comment[author]" value="{{form.author}}">
+</p>
+<p {% if form.errors contains 'email' %} class="error"{% endif %}">
+	<label for="comment_email">Your email</label>
+	<input type="text" id="comment_email" name="comment[email]" value="{{form.email}}">
+</p>
+<p{% if form.errors contains 'body' %} class="error"{% endif %}>
+	<label for="comment_body">Your comment</label>
+    <textarea id="comment_body" name="comment[body]" cols="45" rows="7" class="">{{form.body}}</textarea>
+</p>
+{% if blog.moderated? %}
+<p>Please note that comments have to be approved after posting.</p>
+{% endif %}    
+<input class="button" type="submit" value="Post comment">
+{% endform %}
+</div>
+{% endif %}

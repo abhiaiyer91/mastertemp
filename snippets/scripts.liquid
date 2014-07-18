@@ -1,0 +1,267 @@
+<!--CUSTOM JS -->
+<script src="{{'main.js' | asset_url }}"></script>
+<script src="{{'custom.js' | asset_url }}"></script>
+<script src="{{'share.js' | asset_url }}"></script>
+<script src="{{'tabs.js' | asset_url }}"></script>
+<script src="{{'toolbar.js' | asset_url }}"></script>
+<script src="{{'application.js' | asset_url}}" type="text/javascript"></script>
+<!-- JQUERY PLUGINS -->
+<script src="{{'jquery.zoom.js' | asset_url}}"></script>
+<script src="{{'jquery.bxslider.min.js' | asset_url }}"></script>
+<script src="{{'jquery.flexslider-min.js' | asset_url }}"></script>
+<script src="{{'stickySidebar.js' | asset_url }}"></script>
+<script src="{{'owl.carousel.min.js' | asset_url }}"></script>
+<script src="{{'jquery.isotope.min.js' | asset_url }}"></script>
+<script src="{{'jquery.stellar.min.js' | asset_url }}"></script>
+<script src="{{'jquery.appear.js' | asset_url }}"></script>
+<script src="{{'jquery.themepunch.plugins.min.js' | asset_url }}"></script>
+<script src="{{'jquery.themepunch.revolution.min.js' | asset_url }}"></script>
+<script src="{{'jquery.prettyPhoto.js' | asset_url }}"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="{{'jq-slick.js' | asset_url }}"></script>
+<script src="{{'canvas.js' | asset_url }}"></script>
+
+<!-- PRODUCT SCRIPTS -->
+<script src="{{'bootstrap-product-images.js' | asset_url }}"></script>
+<script src="{{'divsliderleft.js' | asset_url }}"></script>
+
+
+<script>
+    $('.zoom').elevateZoom({scrollZoom : true});
+
+$(window).load(function() {
+  // The slider being synced must be initialized first
+  $('#carousel').flexslider({
+    animation: "slide",
+    controlNav: false,
+    animationLoop: false,
+    slideshow: false,
+    itemWidth: 210,
+    itemMargin: 5,
+    asNavFor: '#slider'
+  });
+
+  $('#slider').flexslider({
+    animation: "slide",
+    controlNav: false,
+    animationLoop: false,
+    slideshow: false,
+    sync: "#carousel"
+  });
+});
+</script>
+
+<script>
+
+$(document).ready(function ($) {
+"use strict";
+    $('.forms').dcSlickForms();
+});
+/*-----------------------------------------------------------------------------------*/
+/*  OWL CAROUSEL
+/*-----------------------------------------------------------------------------------*/
+$(document).ready(function () {
+"use strict";
+     $(".owlcarousel").owlCarousel({
+        navigation: false,
+        autoPlay: 3000,
+        pagination: true,
+        rewindNav: true,
+        items: 4,
+        mouseDrag: true,
+        itemsDesktop: [1200, 4],
+        itemsDesktopSmall: [1024, 4],
+        itemsTablet: [993, 2],
+        itemsMobile: [767, 1]
+    });
+     $(".fancarousel").owlCarousel({
+        navigation: false,
+        autoPlay: 3000,
+        rewindNav: true,
+        items: 4,
+        mouseDrag: true,
+        itemsDesktop: [1200, 4],
+        itemsDesktopSmall: [1024, 3],
+        itemsTablet: [970, 3],
+        itemsMobile: [767, 1]
+    });
+     $(".media-carousel").owlCarousel({
+        navigation: false,
+        pagination: false,
+        autoPlay: 3000,
+        rewindNav: true,
+        items: 3,
+        mouseDrag: true,
+        itemsDesktop: [1200, 3],
+        itemsDesktopSmall: [1024, 2],
+        itemsTablet: [970, 2],
+        itemsMobile: [767, 2],
+        width:100
+    });
+     $(".owl-carousel").owlCarousel({
+        navigation: false,
+        navigationText : ['<i class="icon-left-open"></i>','<i class="icon-right-open"></i>'],
+        pagination: false,
+        rewindNav: false,
+        items: 4,
+        mouseDrag: true,
+        itemsDesktop: [1200, 3],
+        itemsDesktopSmall: [1024, 3],
+        itemsTablet: [970, 3],
+        itemsMobile: [767, 1]
+    });
+    $(".owl-clients").owlCarousel({
+
+        autoPlay: 9000,
+        rewindNav: false,
+        items: 6,
+        itemsDesktop: [1200, 6],
+        itemsDesktopSmall: [1024, 5],
+        itemsTablet: [768, 3],
+        itemsMobile: [480, 2],
+        navigation: false,
+        pagination: false
+
+    });
+     $(".owl-client").owlCarousel({
+
+        autoPlay: 9000,
+        rewindNav: false,
+        items: 1,
+        pagination: false,
+        itemsDesktop: [1200, 1],
+        itemsDesktopSmall: [1024, 1],
+        itemsTablet: [768, 1],
+        itemsMobile: [480, 1]
+
+    });
+     $(".owl-related").owlCarousel({
+
+        autoPlay: 9000,
+        pagination: false,
+        rewindNav: true,
+        navigation: true,
+        items: 3,
+        itemsDesktop: [1200, 3],
+        itemsDesktopSmall: [1024, 2],
+        itemsTablet: [768, 2],
+        itemsMobile: [480, 1]
+
+    });
+    var owl = $(".owl-portfolio-slider");
+
+    owl.owlCarousel({
+        navigation: false,
+        autoHeight: true,
+        slideSpeed: 300,
+        paginationSpeed: 400,
+        singleItem: true
+    });
+
+    // Custom Navigation Events
+    $(".slider-next").click(function () {
+        owl.trigger('owl.next');
+    })
+    $(".slider-prev").click(function () {
+        owl.trigger('owl.prev');
+    })
+
+
+});
+
+</script>
+<!--DISQUS -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = '{{settings.athlete_disqus}}'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+
+
+{% if template == blog %}
+
+<!-- STICKY SIDEBAR -->
+
+
+    <script type="text/javascript">
+        $(function() {
+            var offset = $(".column-right-inner").offset();
+            var topPadding = 100;
+
+            console.log($(window).height());
+            $(window).scroll(function() {
+                if ($(window).scrollTop() >= offset.top) {
+                    $(".column-right-inner").stop().animate({
+                        marginTop: $(window).scrollTop() - offset.top + topPadding
+                    });
+                } else {
+                    $(".column-right-inner").stop().animate({
+                        marginTop: 0
+                    });
+                };
+            });
+        });
+    </script>
+
+{% endif %}
+
+{% if template == product %}
+<!-- ZOOM -->
+  <script>
+    $(document).ready(function(){
+      // $('#main').zoom();
+      	//OWL CAROUSEL
+		$("#owl-demo").owlCarousel({
+
+	      autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+	      items : 8,
+	      itemsDesktop : [1199,3],
+	      itemsDesktopSmall : [979,3]
+
+	    });
+    });
+  </script>
+
+<script>
+Shopify.queryParams = {};
+if (location.search.length) {
+  for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
+    aKeyValue = aCouples[i].split('=');
+    if (aKeyValue.length > 1) {
+      Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
+    }
+  }
+}
+jQuery('#sort-by')
+  .val('{{ collection.sort_by | default: collection.default_sort_by  }}')
+  .bind('change', function() {
+    Shopify.queryParams.sort_by = jQuery(this).val();
+    location.search = jQuery.param(Shopify.queryParams);
+  });
+</script>
+
+{% endif %}
+
+<!--PRETTY PHOTO -->
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $("a[rel^='prettyPhoto']").prettyPhoto();
+  });
+</script>
+
+<!--SHOPIFY COUNTRY JS -->
+
+<script type="text/javascript" charset="utf-8">
+// initialize observers on address selectors
+new Shopify.CountryProvinceSelector('address_country_new', 'address_province_new', {hideElement: 'address_province_container_new'});
+{% for address in customer.addresses %}
+new Shopify.CountryProvinceSelector('address_country_{{address.id}}', 'address_province_{{address.id}}', {hideElement: 'address_province_container_{{address.id}}'});
+{% endfor %}
+</script>

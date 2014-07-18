@@ -1,0 +1,35 @@
+<div class="hidden-md hidden-sm hidden-xs">
+{% for article in blogs["News"].articles limit:4%}
+
+            {% if article.tags contains'video' %}
+           <div class="col-lg-3 blogPostCreative">
+                <div class="blogThumb hideDate">
+                <iframe class="videoPost" style="border:none;" src="{{article.excerpt}}" allowfullscreen></iframe>
+            {% else %}
+            <div class="col-lg-3 blogPostCreative">
+                <div class="blogThumb">
+                    <a href="{{article.url}}"><img src="{{article.excerpt}}" alt="" /></a>
+
+            {%endif%}
+                    <div class="date">{{ article.published_at | date: '%b' }}<br/><span>{{ article.published_at | date: '%d' }}</span></div>
+                    <div class="thumbBar"></div>
+                </div>
+
+                <div class="blogExcerptCreative">
+                {% if article.tags contains'video' %}
+                    <h4><a href="#">{{article.title | truncate: 20}}</a></h4>
+                {% else %}
+                    <h4><a href="{{article.url}}">{{article.title | truncate: 20}}</a></h4>
+                {% endif %}
+                    <p class="heightz">{{ article.content |  strip_html | truncate: 200 }}</p><br/>
+                    <div class="dividerWidget"></div>
+                     {% if article.tags contains 'ads' %}
+                    <a href="/collections/all-products" class="button blog">SHOP NOW</a>
+                    {% else %}
+                    <a href="{{ article.url }}" class="button blog">READ MORE</a>
+                    {% endif %}
+                </div>
+            </div>
+{% endfor %}
+
+</div>

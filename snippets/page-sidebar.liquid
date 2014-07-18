@@ -1,0 +1,21 @@
+{% if settings.show_sidebar_social %}
+<div class="align-right">{% include 'social-links' %}</div>
+{% endif %}
+{% if settings.sidebar_blog %}
+<h2 class="higher">From The Blog</h2>
+{% for article in blogs[settings.sidebar_blog].articles limit:settings.sidebar_blog_articles %}
+<div class="article">
+<h3><a href="{{ article.url }}">{{ article.title | escape }}</a></h3>
+<p><em>{{ article.created_at | date: "%b %d, %Y" }}</em></p>
+{{ article.content | strip_html | truncatewords: 20 }}
+</div><!-- /.article -->
+{% endfor %}
+{% endif %}
+{% if settings.show_sidebar_testimonials %}
+{% if settings.sidebar_blog %}<div class="divided">{% endif %}
+{% capture testimonial %}{{ 'now' | date: '%S' | times: settings.sidebar_testimonials | divided_by: 60 | plus: 1 | prepend: 'sidebar_testimonial' }}{% endcapture %}
+{% capture testimonial_name %}{{ testimonial | append: '_name' }}{% endcapture %}
+<blockquote>&ldquo;{{ settings[testimonial] | escape }}&rdquo;</blockquote>
+<p class="testimonial-name">{{ settings[testimonial_name] | escape }}</p>
+{% if settings.sidebar_blog %}</div>{% endif %}
+{% endif %}

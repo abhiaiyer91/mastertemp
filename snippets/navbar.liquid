@@ -1,0 +1,87 @@
+<header class="navbar navbar-default navbar-fixed-top blue-texture hidden-xs">
+    {% include 'toolbar' %}
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                {% if settings.logo_option == "image" %}
+                    <img src="{{settings.logo_url}}" alt="" class="img-responsive">
+                {% else %}
+                    {{settings.athlete_abbr}}
+                {% endif %}
+            </a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+            {% for link in linklists.main-menu.links %}
+                <li>
+                    <a {% if link.active %} class="active"{% endif %} href="{{ link.url }}">{{ link.title }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        </div> <!--/.navbar-collapse -->
+    </div> <!-- end header container -->
+</header><!-- End Header-->
+
+<header class="visible-xs color1_bg blue-texture" ng-controller="navsearchCtrl">
+    <div class="container">
+        <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" ng-click="search = !search">
+                        <a>
+                            <i class="fa fa-search color2"></i>
+                        </a>
+                    </button>
+                     <button type="button" class="navbar-toggle">
+                      <a href="/cart">
+                        <i class="fa fa-shopping-cart color2"></i> <span>( {{ cart.item_count }} )</span>
+                        </a>
+                    </button>
+                    <button type="button" class="navbar-toggle">
+                      <a href="#" class="bonfire-slideout-buttons">
+                        <i class="fa fa-question color2"></i>
+                        </a>
+                    </button>
+                    <button type="button" class="navbar-toggle">
+                            {% if customer %}
+
+                                <a href="/account"><i class="fa fa-user 3x red"></i></a>
+                            {% else %}
+
+                                <a href="/account/login"><i class="fa fa-user 3x color2"></i></a>
+
+                            {% endif %}
+                    </button>
+                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <i class="fa fa-bars color2"></i>
+                    </button>
+
+            <a class="navbar-brand" href="/">
+                {% if settings.logo_option == "image" %}
+                    <img src="http://i1370.photobucket.com/albums/ag251/anthroisphoto/Odell%20Beckham%20Jr/OBJLogo_zps401fbddc.png" alt="" class="img-responsive">
+                {% else %}
+                    {{settings.athlete_abbr}}
+                {% endif %}
+            </a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+            {% for link in linklists.main-menu.links %}
+                <li>
+                    <a {% if link.active %} class="active"{% endif %} href="{{ link.url }}">{{ link.title }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        </div> <!--/.navbar-collapse -->
+    </div> <!-- end header container -->
+
+    <div ng-show="search" ng-cloak>
+        <form class="searchForm" method="get" action="/search" role="search">
+            <input type="text" name="q" onfocus="if(this.value == 'Search!') { this.value = ''; }" value="" placeholder="Search!" class="input-tall"/>
+            <input type="hidden" name="type" value="all" />
+        </form>
+    </div>
+</header><!-- End Header-->

@@ -1,0 +1,114 @@
+<!-- REVOLUTION SLIDER -->
+<div class="hidden-xs">
+	<div class="fullwidthbanner-container">
+		<div slider class="fullwidthbanner">
+			<ul>
+				<!-- Slide 1 -->
+				 <li data-transition="slideright">
+					<img src="{{settings.slider1_url}}" alt="" />
+
+					{% if settings.caption1 != "" %}
+					<!-- Caption -->
+					 <div class="caption lfl stl rev-title"
+					 	data-x="300"
+					 	data-y="200"
+					 	data-speed="800"
+					 	data-start="1100"
+					 	data-easing="easeOutExpo">
+						<h3 class="rev-title bold padleftresp mainresp">{{settings.caption1}}</h3>
+					</div>
+					{% endif %}
+
+					{% if settings.link1 != "" %}
+					{% if settings.button1 != "" %}
+					<!-- Button -->
+					 <div class="caption sfb"
+					 		data-x="450"
+							data-y="300"
+							data-speed="700"
+							data-start="700"
+							data-easing="easeOutExpo" >
+						<a href="{{settings.link1}}" class="button subHeadBtn">{{settings.button1}}</a>
+					</div>
+					{% endif %}
+					{% endif %}
+				</li>
+
+				<!-- Slide 2 -->
+				<li data-transition="slideright">
+					<img src="{{settings.slider2_url}}" alt="" />
+
+					{% if settings.caption2 != "" %}
+					<!-- Caption -->
+					<div class="caption sft stl"
+						data-x="375"
+						data-y="200"
+						data-speed="700"
+						data-start="700"
+						data-easing="easeOutExpo">
+						<h3 class="rev-title bold padleftresp mainresp">{{settings.caption2}}</h3>
+					</div>
+					{% endif %}
+
+					{% if settings.link2 != "" %}
+					{% if settings.button2 != "" %}
+					<!-- Button -->
+					<div class="caption sfb"
+						data-x="450"
+						data-y="300"
+						data-speed="700"
+						data-start="700"
+						data-easing="easeOutExpo">
+						<a href="{{settings.link2}}" class="button subHeadBtn">{{settings.button2}}</a>
+					</div>
+					{% endif %}
+					{% endif %}
+				</li>
+
+				<!-- Slide 3 -->
+				 <li data-transition="slideright">
+					<img src="{{settings.slider3_url}}" alt="" />
+
+					{% if settings.caption3 != "" %}
+					<!-- Caption -->
+					 <div class="caption lfl stl rev-title"
+					 	data-x="300"
+					 	data-y="230"
+					 	data-speed="800"
+					 	data-start="1100"
+					 	data-easing="easeOutExpo">
+						<h3 class="rev-title bold padleftresp mainresp">{{settings.caption3}}</h3>
+					</div>
+					{% endif %}
+
+					{% if settings.link3 != "" %}
+					{% if settings.button3 != "" %}
+					<!-- Button -->
+					 <div class="caption sfb"
+					 	data-x="400"
+					 	data-y="310"
+					 	data-speed="1100"
+					 	data-start="1500"
+					 	data-easing="easeOutExpo">
+						<a href="{{settings.link3}}" class="button subHeadBtn">{{settings.button3}}</a>
+					</div>
+					{% endif %}
+					{% endif %}
+				</li>
+			</ul>
+			<div class="tp-bannertimer tp-bottom"></div>
+		</div>
+		<!--URL CALL FOR ACCOUNT TEAM -->
+		<div id="gear"></div>
+		<!-- END URL CALL -->
+	</div>
+<!-- // END REVOLUTION SLIDER -->
+</div>
+
+<!-- MOBILE BANNER -->
+<div class="visible-xs">
+	<section id="mobile-hero" class="hidden-sm hidden-md hidden-lg">
+		<h1 class="text-center bebas">OFFICAL {{settings.athlete}} <span>{{settings.athlete_num}}</span> </h1>
+	</section>
+</div>
+<!-- END MOBILE BANNER -->

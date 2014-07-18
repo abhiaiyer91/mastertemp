@@ -1,0 +1,76 @@
+
+<div class="hidden-md hidden-sm hidden-xs">
+{% for article in blogs["blog"].articles limit:4%}
+    {% if article.tags contains 'classic' %}
+            <div class="col-sm-3">
+            <div class="blogPostMasonry">
+                <div class="blogThumb">
+                    <a href="{{article.url}}"><img src="{{article.excerpt}}" class="blogaz"/></a>
+                    <div class="thumbBar"></div>
+                    <div class="triangle"></div>
+                </div>
+                <div class="blogExcerptMasonry">
+                <h4 class="titlez"><a href="{{article.url}}">{{ article.title | truncate: 25}}</a></h4>
+                <p class="heightz">{{article.content | strip_html | truncate: 200 }}</p><br/>
+                <a href="{{ article.url }}" class="button blog">READ MORE</a>
+                </div>
+                <table border="1" class="blogDetails">
+                <tr>
+                <td><a href="#"><img src="{{'dateIcon.png' | asset_url }}" alt="" class="blogIcon" />{{ article.published_at | date: '%b-%d' }}</a></td>
+                <td><a href="{{article.url}}#disqus_thread">0 Comments</a></td>
+                <!-- <td><a href="#"><img src="images/likeIcon.png" alt="" class="blogIcon" />13</a></td> -->
+                </tr>
+                </table>
+            </div>
+            </div>
+    {% endif %}
+    {% if article.tags contains 'video' %}
+            <div class="col-sm-3">
+            <div class="blogPostMasonry">
+                <div class="blogThumb">
+                    <iframe class="videoPost" style="border:none;" src="{{article.excerpt}}" allowfullscreen></iframe>
+                    <div class="thumbBar"></div>
+                    <div class="triangle"></div>
+                </div>
+                <div class="blogExcerptMasonry">
+                <h4><a href="{{article.url}}">{{ article.title | truncate: 25}}</a></h4>
+                <p class="heightz">{{article.content | strip_html | truncate: 200 }}</p><br/>
+                <a href="{{ article.url }}" class="button blog">READ MORE</a>
+                </div>
+                <table border="1" class="blogDetails">
+                <tr>
+                <td><a href="#"><img src="{{'dateIcon.png' | asset_url }}" alt="" class="blogIcon" />{{ article.published_at | date: '%b-%d' }}</a></td>
+                <td><a href="{{article.url}}#disqus_thread"><img src="images/commentIcon.png" alt="" class="blogIcon" />17</a></td>
+                <!-- <td><a href="#"><img src="images/likeIcon.png" alt="" class="blogIcon" />13</a></td> -->
+                </tr>
+                </table>
+            </div>
+            </div>
+    {% endif %}
+    {% if article.tags contains 'photo' %}
+            <div class="col-sm-3">
+            <div class="blogPostMasonry">
+                <div class="blogThumb">
+                <ul class="bxsliderBlog">
+                    {{article.excerpt}}
+                </ul>
+                    <div class="thumbBar"></div>
+                    <div class="triangle"></div>
+                </div>
+                <div class="blogExcerptMasonry">
+                <h4><a href="{{article.url}}">{{ article.title | truncate: 25}}</a></h4>
+                <p class="heightz">{{article.content | strip_html | truncate: 200 }}</p><br/>
+                <a href="{{ article.url }}" class="button blog">READ MORE</a>
+                </div>
+                <table border="1" class="blogDetails">
+                <tr>
+                <td><a href="#"><img src="{{'dateIcon.png' | asset_url }}" alt="" class="blogIcon" />{{ article.published_at | date: '%b-%d' }}</a></td>
+                <td><a href="{{article.url}}#disqus_thread"><img src="images/commentIcon.png" alt="" class="blogIcon" />17</a></td>
+                <!-- <td><a href="#"><img src="images/likeIcon.png" alt="" class="blogIcon" />13</a></td> -->
+                </tr>
+                </table>
+            </div>
+            </div>
+    {% endif %}
+{% endfor %}
+</div>

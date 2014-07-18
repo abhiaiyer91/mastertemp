@@ -1,0 +1,134 @@
+{% layout settings.customer_layout %}
+
+
+<div class="clearfix">
+<div id="login-specific-page">
+<div id="login-bg-dark" class="container padding-bottom48">
+<h2 class="text-center padding-top24 padding-bottom24 uppercase">Account</h2>
+	<div class="row">
+	    	<div class="col-sm-6 col-xs-12">
+	            <div id="reg">
+	            <!-- Guest Login -->
+  {% if shop.checkout.guest_login %}
+    <div class="guest-login">
+      <h2>Guest Login</h2>
+        {% form 'guest_login' %}
+          <input class="button subHeadBtn" type="submit" value="Continue as Guest" />
+        {% endform %}
+    </div>
+  {% endif %}
+  <!-- End Guest Login -->
+  	<br>
+	                <h2>Registered Customers</h2>
+	                <p>Login with your account email and password below or create an account with us!.</p>
+	                <div class="divide15"></div>
+	                {% form 'customer_login' %}
+	                {{ form.errors | default_errors }}
+	                <fieldset>
+	                    <ul id="otis">
+	                        <li class="form-row text-input-row email-field">
+	                            <input type="email" value="" name="customer[email]" id="customer_email"  size="30" placeholder="Email Address" class="text-input defaultText required email" title="Username or Email (Required)"/>
+	                        </li>
+	                        <br />
+	                        <li class="form-row text-input-row password-field">
+	                            <input type="password" value="" name="customer[password]" id="customer_password" size="16" placeholder="Password" required  class="text-input defaultText required password" title="Password (Required)"/>
+	                        </li>
+	                        <br/>
+	                        <li class="button-row">
+	                            <input name="submit" value="Sign In" type="submit" value="Login" class="button subHeadBtn" />
+	                        </li>
+	                        <li><p class="forgot"><a href="#toforgot">Forgot your username or password?</a></p></li>
+	                    </ul>
+	                </fieldset>
+
+	                {% endform %}
+
+	            </div>
+	            <div id="forg" class="hidden">
+	                <!-- Password reset -->
+
+	                <div class="">
+	                    <h3>Reset Password</h3>
+	                    <p>We will send you an email to reset your password.</p>
+	                    <br />
+	                </div>
+
+	                {% form 'recover_customer_password' %}
+	                {{ form.errors | default_errors }}
+
+
+
+	                <div class="form-row">
+	                    <label for="email" class="large"></label>
+	                    <input type="email" value="" size="30" placeholder="Email Address" name="email" id="recover-email" class="text-input defaultText required email" />
+	                </div>
+	                <br/>
+	                <div class="form-row recover-cancel">
+	                    <input class="button subHeadBtn" type="submit" value="Submit" /><br />
+	                    or <a class="ex forgot" href="#toenter">Cancel</a>
+	                </div>
+	                {% endform %}
+	            </div>
+	            <!-- End Password reset -->
+
+	        </div>
+
+    	<div class="col-sm-6 col-xs-12">
+            <div id="log">
+            <br>
+                <h2 class="bebas">New User? Register Now!</h2>
+                <p>Create one account to manage everything you do with RS25, from your shopping history and your shipping preferences! Shop with ease!</p>
+            </div>
+
+            <div id="reg">
+                {% form 'create_customer' %}
+                {{ form.errors | default_errors }}
+
+                <div id="first_name" class="clearfix">
+                    <label for="first_name" class="login">First Name</label>
+                    <input type="text" value="" name="customer[first_name]" id="first_name" class="large" size="30" />
+                </div>
+
+                <div id="last_name" class="clearfix">
+                    <label for="last_name" class="login">Last Name</label>
+                    <input type="text" value="" name="customer[last_name]" id="last_name" class="large" size="30" />
+                </div>
+
+                <div id="email" class="clearfix">
+                    <label for="email" class="login">Email Address</label>
+                    <input type="email" value="" name="customer[email]" id="email" class="text-input defaultText required email"  />
+                </div>
+
+                <div id="password" class="clearfix">
+                    <label for="password" class="login">Password</label>
+                    <input type="password" value="" name="customer[password]" id="password" class="text-input defaultText required password" />
+                </div>
+				<br />
+                <div class="action_bottom">
+                    <input class="button subHeadBtn" type="submit" value="Create" /><br />
+                </div>
+
+                {% endform %}
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+<div class="padding-bottom24"></div>
+
+
+<script type="text/javascript">
+$(document).ready(function () {
+  $(".forgot").on('click', function() {
+      $("#forg").removeClass('hidden');
+  });
+  $('.ex').on('click', function(){
+  	  $('#forg').addClass('hidden');
+  });
+
+  $('#toreg').on('click', function(){
+  	$('#reg').removeClass('hidden');
+  });
+});
+</script>

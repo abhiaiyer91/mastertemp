@@ -1,0 +1,92 @@
+
+
+<section class="aboutTeam">
+    <div class="container">
+        <h2> GAME<span> INFO</span> <br/>{% include 'divider' %}</h2>
+        <img src="{{'softball_banner .jpg' | asset_url}}" alt="" class="img-responsive">
+        <div class="col-xs-12">
+            <p class="text-left lead">HELLO WORLD HELO AGAIN</p>
+        </div>
+    </div>
+</section>
+<div class="content-divider"></div>
+<section class="">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-xs-12 text-center">
+                <ul><h2 class="">DETAILS</h2><br>
+                    <li class="lead">When: Sunday, July 20th, 2014</li>
+                    <li class="lead">Where: <a href="http://seattle.mariners.mlb.com/sea/ballpark/transportation/index.jsp" target='_blank'>Safeco Field</a> in Seattle, WA </li>
+                    <li class="lead">Address: 1250 First Ave. South, Seattle, WA 98134</li>
+                    <li class="lead">Click The Map For Driving Directions</li>
+                </ul>
+                <div id="newsletter"></div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <a href="https://www.google.com/maps/place/1250+1st+Ave+S/@47.5880405,-122.3387999,15z/data=!4m2!3m1!1s0x54906aa1fabd2455:0x191da1a8563a840a" target="_blank"><img src="http://i1370.photobucket.com/albums/ag251/anthroisphoto/ScreenShot2014-04-09at102923AM_zpse4ab8206.png" alt="" class="img-responsive"></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<br>
+
+<div class="bottom-form">
+    <div class="content-divider">
+    </div>
+</div>
+
+
+<section>
+<div class="row blue_bg">
+    <div class="col-sm-6 softball-form white_bg">
+        <h2>SPONSORSHIP <span>INQUIRIES</span> <br/>{% include 'divider' %}</h2>
+        {% form 'contact' %}
+
+        {% if form.posted_successfully? %}
+        <div class="successForm feedback">
+            <p>Thanks for contacting us! We'll get back to you as soon as possible.</p>
+        </div>
+        {% endif %}
+
+        {% if form.errors %}
+        <div class="errorForm feedback">
+            <!-- {{ form.errors.size }} or {{ form.errors | size }} -->
+            <p>Oops, sorry. We were unable to submit your inquiry because it contained {{ form.errors | size | pluralize: 'an error', 'a few errors' }}. Please correct the following and submit again:</p>
+            {% for field in form.errors %}
+            <p>The {{ field | capitalize | replace: 'Body', 'Message' }} field {{ form.errors.messages[field] }}.</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <div id="contactFormWrapper" class="container">
+            <p>
+                <input type="text" id="contactFormName" name="contact[name]" placeholder="NAME" />
+            </p>
+            <p>
+                <input type="email" id="contactFormEmail" name="contact[email]" placeholder="E-MAIL ADDRESS" />
+            </p>
+            <p>
+                <textarea rows="15" cols="75" id="contactFormMessage" name="contact[body]" placeholder="MESSAGE"></textarea>
+            </p>
+            <p>
+                <input type="submit" id="contactFormSubmit" value="SEND" class="button subHeadBtn" />
+            </p>
+        </div><!-- contactWrapper -->
+
+
+        {% endform %}
+
+    </div>
+
+
+    <div class="col-sm-6 softball-newsletter">
+
+        <h2 class="white">RICHARD SHERMAN <span>NEWSLETTER</span> <br/>{% include 'divider' %}</h2>
+        <div class="text-center">{% include 'softball.newsletter' %}</div>
+    </div>
+
+
+</div>
+</section>
+

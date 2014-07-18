@@ -1,0 +1,79 @@
+<a href="#" class="bonfire-slideout-button hidden-xs"> <i class="fa fa-envelope-o"></i></a>
+<div class="bonfire-slideout-button-triangle-background"></div>
+<div class="bonfire-slideout">
+  <div class="bonfire-slideout-inner">
+    <div class="bonfire-slideout-inner-inner"> 
+      <div class="bonfire-slideout-close fa fa-chevron-down"></div>
+      <div class="bonfire-slideout-content container">
+        <div class="thin">
+          <div class="section-title-wrapper">
+            <h3 class="section-title bebas">Get in Touch</h3>
+          </div>
+          <div class="divide30"></div>
+          <div class="row">
+          <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+              <div class="form-container">
+
+            {% form 'contact' %}
+                {% if form.posted_successfully? %}
+                    <div class="response alert alert-success"></div>
+                {% endif %}
+                {% if form.errors %}
+                  <div class="errorForm feedback">
+                    <!-- {{ form.errors.size }} or {{ form.errors | size }} -->
+                    <p>Oops, sorry. We were unable to submit your inquiry because it contained {{ form.errors | size | pluralize: 'an error', 'a few errors' }}. Please correct the following and submit again:</p>
+                    {% for field in form.errors %}
+                      <p>The {{ field | capitalize | replace: 'Body', 'Message' }} field {{ form.errors.messages[field] }}.</p>
+                    {% endfor %}
+                  </div>
+                  {% endif %}
+
+                <div class="forms">
+                  <fieldset>
+                    <ol>
+                      <li class="form-row text-input-row name-field">
+                        <input type="text" id="contactFormName" name="contact[name]" class="text-input defaultText required" title="Name (Required)" required/>
+                      </li>
+                      <li class="form-row text-input-row email-field">
+                        <input type="text" id="contactFormEmail" name="contact[email]" class="text-input defaultText required email" title="Email (Required)" required/>
+                      </li>
+                      <li class="form-row text-input-row subject-field">
+                        <input type="text" id="contactFormSubject" name="contact[subject]" class="text-input defaultText" title="Subject" required/>
+                      </li>
+                      <li class="form-row text-area-row">
+                        <textarea id="contactFormMessage" name="contact[body]" class="text-area required" required></textarea>
+                      </li>
+                      <li class="form-row hidden-row">
+                        <input type="hidden" name="hidden" value="" />
+                      </li>
+                      <li class="nocomment">
+                        <label for="nocomment">Leave This Field Empty</label>
+                        <input id="nocomment" value="" name="nocomment" />
+                      </li>
+<div>
+        <br/>How much is: <input type="text" disabled="disabled" id="questions" required/>
+        <br/>Answer:* <input type="number" id="answers" required/>
+</div>                      
+                      <li class="button-row">
+                        <input type="submit" value="Submit" name="submit" class="btn btn-submit bm0" />
+                      </li>
+                    </ol>
+                    <input type="hidden" name="v_error" id="v-error" value="Required" />
+                    <input type="hidden" name="v_email" id="v-email" value="Enter a valid email" />
+                  </fieldset>
+               </div>
+              {% endform %}
+              </div>
+              <!-- /.form-container --> 
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-2"></div>
+            <!-- /.col --> 
+          </div>
+          <!-- /.row --></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /canvas -->

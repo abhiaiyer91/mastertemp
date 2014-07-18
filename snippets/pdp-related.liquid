@@ -1,0 +1,77 @@
+        <div class="row">
+
+    
+    <div class="col-lg-12">
+                <h4>RELATED PRODUCTS</h4>
+                <div class="dividerWidget"></div>
+            </div>
+        {% for product in collections.related.products limit:4 %}
+            <div class="col-lg-3 visible-lg">
+                <a href="{{product.url}}" class="shopItem">
+                <div class="overlay"><h4>VIEW ITEM</h4></div>
+                   {% if product.tags contains 'sale' %}
+                <div class="button smallGrey sale">SALE</div>
+                {% endif %}
+                <img src="{{ product.featured_image | product_img_url: 'grande' }}" alt="" class="shopImg changehight" />
+                </a>
+                <div class="shopItemDetails">
+                    <a href="{{product.url}}"><h4>{{product.title}}</h4></a>
+                        {% if product.tags contains 'sale' %}
+                        <p class="shopPrice">{{ product.price | money }}{% if product.compare_at_price_max > product.price %} <span class="old-price">{{ product.compare_at_price_max | money }}</span>{% endif %}</p>
+                        {% else %}
+                        <p class="shopPrice"> {{ product.price | money }}</p>
+                        {% endif %}
+                </div>
+
+            </div>
+
+
+        {% endfor %}
+    
+
+        {% for product in collections.related.products limit:3 %}
+            <div class="col-md-4 col-sm-4 visible-md visible-sm">
+                <a href="{{product.url}}" class="shopItem">
+                <div class="overlay"><h4>VIEW ITEM</h4></div>
+                   {% if product.tags contains 'sale' %}
+                <div class="button smallGrey sale">SALE</div>
+                {% endif %}
+                <img src="{{ product.featured_image | product_img_url: 'grande' }}" alt="" class="shopImg changehight" />
+                </a>
+                <div class="shopItemDetails">
+                    <a href="{{product.url}}"><h4>{{product.title}}</h4></a>
+                        {% if product.tags contains 'sale' %}
+                        <p class="shopPrice">{{ product.price | money }}{% if product.compare_at_price_max > product.price %} <span class="old-price">{{ product.compare_at_price_max | money }}</span>{% endif %}</p>
+                        {% else %}
+                        <p class="shopPrice"> {{ product.price | money }}</p>
+                        {% endif %}
+                </div>
+
+            </div>
+
+
+        {% endfor %}
+        <div class="visible-xs owlcarousel">
+        {% for product in collections.related.products %}
+        <div class="relatedMasonry">
+            <a href="{{product.url}}" class="shopItem">
+            <div class="overlay"><h4>VIEW ITEM</h4></div>
+               {% if product.tags contains 'sale' %}
+            <div class="button smallGrey sale">SALE</div>
+            {% endif %}
+            <img src="{{ product.featured_image | product_img_url: 'grande' }}" alt="" class="shopImg changehight" />
+            </a>
+            <div class="shopItemDetails">
+                <a href="{{product.url}}"><h4>{{product.title}}</h4></a>
+                    {% if product.tags contains 'sale' %}
+                    <p class="shopPrice">{{ product.price | money }}{% if product.compare_at_price_max > product.price %} <span class="old-price">{{ product.compare_at_price_max | money }}</span>{% endif %}</p>
+                    {% else %}
+                    <p class="shopPrice"> {{ product.price | money }}</p>
+                    {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+
+
+        </div><!-- end row -->

@@ -1,0 +1,25 @@
+{% if settings.show_sublinks %}
+<ul class="sublinks">
+	<li>
+		<a href="{{ settings.sublinks_link1 }}">
+			<img src="{{ 'sublinks1.jpg' | asset_url }}" alt="{{ settings.sublinks_title1 }}">
+			<h3>{{ settings.sublinks_title1 }}</h3>
+			<p>{{ settings.sublinks_description1 }}</p>
+		</a>
+	</li>
+	<li>
+		<a href="{{ settings.sublinks_link2 }}">
+			<img src="{{ 'sublinks2.jpg' | asset_url }}" alt="{{ settings.sublinks_title2 }}">
+			<h3>{{ settings.sublinks_title2 }}</h3>
+			<p>{{ settings.sublinks_description2 }}</p>
+		</a>
+	</li>
+	<li>
+		<a href="{{ settings.sublinks_link3 }}">
+			<img src="{{ 'sublinks3.jpg' | asset_url }}" alt="{{ settings.sublinks_title3 }}">
+			<h3>{{ settings.sublinks_title3 }}</h3>
+			<p>{{ settings.sublinks_description3 }}</p>
+		</a>
+	</li>
+</ul>
+{% endif %}

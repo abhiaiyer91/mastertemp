@@ -1,0 +1,36 @@
+        <div class="col-lg-2 col-md-2 hidden-xs"></div>
+        <div class="col-lg-8 col-md-8 col-xs-12">
+
+
+
+
+                <div class="blogPostClassic">
+                    <div class="blogThumb">
+                        <img src="{{ article.excerpt }}" class="blogasview" alt="" />
+                        <div class="thumbBar"></div>
+                    </div>
+                    <table border="1" class="blogDetails">
+                        <tr class="width100">
+                            <td><a href="{{article.url}}">
+                                <img src="{{'dateIcon.png' | asset_url }}" alt="" class="blogIcon hidden-xs" />{{ article.published_at | date: '%b-%d' }}</a>
+                            </td>
+                            <td><a href="{{article.url}}#disqus_thread">0 Comments</a></td>
+                            <td class="hidden-xs"><div class="fb-share-button" data-href="{{article.url}}" data-type="button_count"></div></td>
+                        </tr>
+                    </table>
+                    
+                    <h4>{{ article.title }}</h4>
+                    <p>POSTED BY: <a href="#">{{settings.athlete}}</a> in <a href="/blogs/{{blog.title}}">{{ blog.title | upcase }}</a></p>
+                    {{ article.content }}
+                </div>
+
+
+
+
+        </div><!-- end post -->
+        <div class="col-lg-2 col-md-2 hidden-xs"></div>
+            {% comment %}
+            {% include 'ad-placement' %}
+            {% endcomment %}
+            <br>
+            <div id="disqus_thread"></div>

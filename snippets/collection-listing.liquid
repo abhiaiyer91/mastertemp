@@ -1,0 +1,13 @@
+{% if (settings.base_style == 'pavilion') %}</div></div>{% endif %}
+<div class="section" role="main">
+  <h1 class="page-title">Product Collections</h2>
+  <ul class="sub-list">
+  {% for collection in collections %}
+  {% unless collection.handle == 'frontpage' %}
+    <li class="collection">
+          <a href="{{ collection.url }}">{{ collection.title | escape }}</a>
+    </li>
+  {% endunless %}
+  {% endfor %}
+  </ul>
+</div>

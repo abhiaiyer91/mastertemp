@@ -1,0 +1,12 @@
+<section class="hidden">
+	<div class="container" ng-controller="InstaCtrl">
+		<h2 class="text-center">BE FEATURED IN YOUR NEW <span>#{{settings.athlete_abbr}}{{product.type | upcase}}</span><br>{% include 'divider' %}</h2>
+		<div ng-init="search('{{settings.athlete_abbr}}{{product.type}}')">
+		</div>
+		{% raw %}
+		<div class="col-sm-3" ng-repeat="insta in instas|limitTo:4">
+			<img ng-src="{{insta.images.standard_resolution.url}}" alt="" class="img-responsive">
+		</div>
+		{% endraw %}
+	</div>
+</section>

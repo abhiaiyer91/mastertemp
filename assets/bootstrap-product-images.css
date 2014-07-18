@@ -1,0 +1,132 @@
+#product-images {
+	-webkit-border-radius: 4px;
+	   -moz-border-radius: 4px;
+		    border-radius: 4px;
+    padding: 6px;
+}
+
+
+#product-images a {
+	display: block;
+}
+
+.price {
+	float: right;
+	background:#c83f39;
+	color:#fff;
+	width:80px;
+	height:80px;
+	font-size: 21px;
+	font-weight:bold;   
+    line-height: 80px;
+    text-align: center;
+    margin-bottom: 20px;
+    -webkit-border-radius:40px;
+       -moz-border-radius:40px;
+            border-radius:40px;
+}
+
+.discount {
+	color:#c83f39;
+	font-size: 21px;
+    font-weight: 200;
+    line-height: 30px;
+    margin-bottom: 20px;
+}
+
+.action-buttons a {
+	margin-bottom: 20px;
+}
+
+.size select {
+	width: 100%;
+}
+
+.color select {
+	width: 100%;
+}
+
+.quantity input {
+	width:98%;
+	text-align:right;
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+	.action-buttons .span6 {
+		width: 100%;
+		*width: 100%;
+	}
+	.action-buttons .span6:last-child {
+		margin-left: 0;
+	}
+}
+
+@media (max-width: 767px) {
+	#product-images .row-fluid [class*="span"]:first-child {
+		margin-left: 0;
+	}
+	#product-images [class*="span"],
+	  #product-images .row-fluid [class*="span"] { 
+	    float: left;
+		margin-left: 2.12766%;
+	  }
+	#product-images .row-fluid .span12 {
+	  width: 100%;
+	  *width: 99.94680851063829%;
+	}
+
+	#product-images .row-fluid .span11 {
+	  width: 91.48936170212765%;
+	  *width: 91.43617021276594%;
+	}
+
+	#product-images .row-fluid .span10 {
+	  width: 82.97872340425532%;
+	  *width: 82.92553191489361%;
+	}
+
+	#product-images .row-fluid .span9 {
+	  width: 74.46808510638297%;
+	  *width: 74.41489361702126%;
+	}
+
+	#product-images .row-fluid .span8 {
+	  width: 65.95744680851064%;
+	  *width: 65.90425531914893%;
+	}
+
+	#product-images .row-fluid .span7 {
+	  width: 57.44680851063829%;
+	  *width: 57.39361702127659%;
+	}
+
+	#product-images .row-fluid .span6 {
+	  width: 48.93617021276595%;
+	  *width: 48.88297872340425%;
+	}
+
+	#product-images .row-fluid .span5 {
+	  width: 40.42553191489362%;
+	  *width: 40.37234042553192%;
+	}
+
+	#product-images .row-fluid .span4 {
+	  width: 31.914893617021278%;
+	  *width: 31.861702127659576%;
+	}
+
+	#product-images .row-fluid .span3 {
+	  width: 23.404255319148934%;
+	  *width: 23.351063829787233%;
+	}
+
+	#product-images .row-fluid .span2 {
+	  width: 14.893617021276595%;
+	  *width: 14.840425531914894%;
+	}
+
+	#product-images .row-fluid .span1 {
+	  width: 6.382978723404255%;
+	  *width: 6.329787234042553%;
+	}
+}

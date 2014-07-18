@@ -1,0 +1,39 @@
+<ul id="collection-list" class="sub-list secondary left">
+	{% unless settings.linklist_collections == '' %}
+	{% if collection.title == 'Products'  %}
+	<li class="collection current">
+		<a href="{{ collection.url }}">{{ collection.title }}</a>
+		<ul class="collection-tags">
+			{% for tag in collection.all_tags %}
+			<li{% if current_tags contains tag %} class="current"{% endif %}><a href="/collections/all/{{ tag | handle }}">{{ tag }}</a></li>
+			{% endfor %}
+		</ul>
+	</li>
+	{% endif %}
+	{% for link in linklists.[settings.linklist_collections].links %}
+	<li class="collection{% if link.active %} current{% endif %}">
+		<a href="{{ link.url }}">{{ link.title }}</a>
+		{% if link.active and settings.show_collection_tags and link.object.all_tags.size > 0 %}
+		<ul class="collection-tags">
+			{% for tag in link.object.all_tags %}
+			<li{% if current_tags contains tag %} class="current"{% endif %}><a href="{{ link.url }}/{{ tag | handle }}">{{ tag }}</a></li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+	</li>
+	{% endfor %}
+	{% else %}
+	{% for link in collections %}
+	<li class="collection{% if link.url == collection.url %} current{% endif %}">
+		<a href="{{ link.url }}">{{ link.title | escape }}</a>
+		{% if link.url == collection.url and settings.show_collection_tags and link.all_tags.size > 0 %}
+		<ul class="collection-tags">
+			{% for tag in link.all_tags %}
+			<li{% if current_tags contains tag %} class="current"{% endif %}><a href="{{ link.url }}/{{ tag | handle }}">{{ tag | escape }}</a></li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+	</li>
+	{% endfor %}
+	{% endunless %}
+</ul>

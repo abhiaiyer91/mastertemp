@@ -1,0 +1,15 @@
+
+<section class="news-index">
+    <div class="container">
+    <h2>LATEST <span>NEWS</span><br/>{% include 'divider' %}</h2>
+    <div class="more text-center"> <a href="/blogs/news">VIEW ALL NEWS</a></div>
+        <div class="row new-mob">
+        {% include 'news-desktop' %}
+        {% include 'news-md' %}
+        {% include 'news-tablet' %}
+        {% include 'news-mobile' %}
+        </div>
+        <div id="foundation"></div>
+    </div>
+</section>
+

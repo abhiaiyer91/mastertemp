@@ -1,0 +1,106 @@
+<div class="foundation-slide">
+	<div slider class="fullwidthbanner">
+		<ul>
+			<li data-transition="slideright">
+				<img src="{{settings.foundation_slide_url}}" alt="" />
+
+				<div class="caption lfl stl rev-title" 
+					 	data-x="350" 
+					 	data-y="150" 
+					 	data-speed="800" 
+					 	data-start="1100" 
+					 	data-easing="easeOutExpo">
+					<h3 class="rev-title bold padleftresp mainresp">{{settings.foundation_caption1}}</h3>
+				</div>
+				<div class="caption lfl stl rev-title" 
+					 	data-x="175" 
+					 	data-y="250" 
+					 	data-speed="800" 
+					 	data-start="1100" 
+					 	data-easing="easeOutExpo">
+					<h3 class="rev-title bold padleftresp mainresp">{{settings.foundation_caption2}}</h3>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="foundation-about container">
+	<div class="row">
+		<div class="col-sm-6">
+			<img class="img-responsive" src="{{settings.foundation_image_url}}" />
+		</div>
+		<div class="pad-mobile"></div>
+		<div class="col-sm-6">
+			{{page.content}}
+			<div class="row">
+	            <div class="col-sm-7 hidden-xs"></div>
+	            <div class="col-sm-3 col-xs-12">
+	            	{% if settings.foundation_link != "" %}
+	                <a href="{{settings.foundation_link}}" target="_blank"><i class="pull-right fa fa-facebook-square fa-3x"></i></a>
+	                <h4 class="hidden-xs">/ATHLETE FB FOR CHARITY</h4>
+	                {% endif %}
+	            </div>
+	        </div>
+		</div>
+	</div>
+</div>
+
+<section class="color1_bg foundation">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6 text-center">
+				<div class="jumbotron color2_bg">
+					<a href="/collections/all-products">
+						<h2 class="white">DONATE</h2>
+					</a>
+				</div>
+			</div>
+			<div class="pad-mobile"></div>
+			<div class="col-sm-6 text-center">
+			<a href="/#newsletter">
+				<div class="jumbotron color2_bg">
+					<h2 class="white"><span class="white hidden-sm hidden-md">JOIN </span>NEWSLETTER</h2>
+				</div>
+			</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="foundation-gallery container">
+	<h2>GALLERY<br>{% include 'divider' %}</h2>
+	<div class="row gal-height">
+		<div class="col-sm-6">
+			<div class="text-center">
+				<a href="/pages/media" class="">
+					<img src="{{settings.foundation_media1_url}}" alt="" class="img-thumbnail">
+				</a>
+			</div>
+		</div>
+		<div class="pad-mobile"></div>
+		<div class="col-sm-6">
+			<div class="col-xs-6">
+				<div class="pad-gal-img">
+					<a href="/pages/media" class="">
+					<img src="{{settings.foundation_media2_url}}" alt="" class="img-responsive">
+					</a>
+				</div>
+				<a href="/pages/media" class="">
+				<img src="{{settings.foundation_media3_url}}" alt="" class="img-responsive">
+				</a>
+			</div>
+			<div class="col-xs-6">
+				<div class="pad-gal-img">
+					<a href="/pages/media" class="">
+					<img src="{{settings.foundation_media4_url}}" alt="" class="img-responsive">
+					</a>
+				</div>
+				<a href="/pages/media" class="">
+				<img src="{{settings.foundation_media5_url}}" alt="" class="img-responsive">
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+

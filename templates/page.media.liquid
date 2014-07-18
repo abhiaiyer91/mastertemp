@@ -1,0 +1,24 @@
+<!-- start work -->
+<section class="media">
+<h2>ATHLETE<span>MEDIA</span> <br/>{% include 'divider' %}</h2>
+    <div class="container">
+        <div class="row" ng-controller="MediaCtrl">
+        {% raw %}
+            <div ng-repeat="image in images" class="col-lg-4 col-md-6 col-sm-6 col-xs-12 cat1">
+                <div class="text-center">
+                <a href="{{image.link}}">
+
+                      <img id="media-page" ng-src="{{image.imgsrc}}" alt="" class="img-thumbnail1" />
+
+                </a>
+                </div>
+                <br>
+                <div class="media-title">
+                  <h3 class="text-center"><a href="{{image.link}}">{{image.title}}</a></h3>
+                </div>
+            </div>
+          {% endraw %}
+        </div><!-- end row -->      
+    </div><!-- end work container -->
+</section><!-- end work section -->
+<!-- <h1>{{'media.json' | asset_url}}</h1> -->

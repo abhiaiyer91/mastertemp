@@ -1,0 +1,49 @@
+<div class="col-lg-6 col-md-6 col-sm-6">
+        <form action="/cart/add" method="post" class="product-form">
+
+                        {% if product.tags contains 'sale' %}
+                        <p class="shopPrice">{{ product.price | money }}{% if product.compare_at_price_max > product.price %} <span class="old-price">{{ product.compare_at_price_max | money }}</span>{% endif %}</p>
+                        {% else %}
+                        <p class="shopPrice"> {{ product.price | money }}</p>
+                        {% endif %}
+
+            
+                  <div class="pdp-options">
+                    <label>Qty:</label><select class="formDropdown qty text-center" name="quantity" id="quantity">
+                        {% for i in (1..10) %}
+                        <option value="{{ i }}">{{ i }}</option>
+                        {% endfor%}
+                    </select>
+                    <span class="pad-left10">
+                      <label>Size:</label>
+
+
+                      <select id="product" name="id"  class="formDropdown shopInput">
+
+
+                          {% for variant in product.variants %}
+                          {% if variant.inventory_quantity <= 0 and variant.available %}
+                          <option value="{{ variant.id }}">{{ variant.title}} - BACK ORDER </option>
+                          {% elsif variant.inventory_quantity <= 0 %}
+                          {% else %}
+                          <option value="{{ variant.id }}">{{ variant.title }}</option>
+                          {% endif %}
+                          {%endfor%}
+                      </select>
+                    </span>
+
+                    <div class="blocks">
+                    {% if product.available %}
+                      <button class="button subHeadBtn"  name ="add" type="submit" />ADD TO CART</button>
+                    {% else %}
+                     <button onclick="return false;" class="button red subHeadBtn"/>SOLD OUT</button>
+                    {% endif %}
+                    </div>
+                  </div>
+                <p>{{product.content}}</p>
+                {% include 'addthis' %}
+
+
+                    </form>
+
+            </div>

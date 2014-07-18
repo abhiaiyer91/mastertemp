@@ -1,0 +1,40 @@
+<nav>
+<ul id="collection-nav" class="collection-nav" role="navigation">
+	{% if settings.linklist_collections != '' %}
+	{% for link in linklists.[settings.linklist_collections].links %}
+	<li class="collection{% if settings.show_collection_tags and link.object.all_tags.size > 0 %} dropdown{% endif %}">
+		<a href="{{ link.url }}"{% if link.active %} class="current"{% endif %}>{{ link.title | escape }}</a>
+		{% if settings.show_collection_tags and link.object.all_tags.size > 0 %}
+		<ul class="collection-tags">
+			{% for tag in link.object.all_tags %}
+			<li><a href="{{ link.url }}/{{ tag | handle }}">{{ tag | escape }}</a></li>
+			{% endfor %}
+		</ul>
+		{% elsif settings.show_matching_linklists %}
+		{% capture child_list_handle %}{{ link.title | handleize }}{% endcapture %}
+		{% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+		<ul class="collection-tags">
+			{% for l in linklists[child_list_handle].links %}
+			<li><a href="{{ l.url }}">{{ l.title | escape }}</a></li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+		{% endif %}
+	</li>
+	{% endfor %}
+	{% else %}
+	{% for link in collections %}
+	<li class="collection{% if settings.show_collection_tags and link.all_tags.size > 0 %} dropdown{% endif %}">
+		<a href="{{ link.url }}"{% if link.url == collection.url %} class="current"{% endif %}>{{ link.title | escape }}</a>
+		{% if settings.show_collection_tags and link.all_tags.size > 0 %}
+		<ul class="collection-tags">
+			{% for tag in link.all_tags %}
+			<li><a href="{{ link.url }}/{{ tag | handle }}">{{ tag }}</a></li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+	</li>
+	{% endfor %}
+	{% endif %}
+</ul>
+</nav>

@@ -1,0 +1,30 @@
+<!-- <div class="wrapper" style="margin-bottom:0px;">
+            <ul class="pageList">
+            <li><a href="#" class="button smallGrey">&lt;</a></li>
+            <li><a href="#" class="button smallGrey current">1</a></li>
+            <li><a href="#" class="button smallGrey">2</a></li>
+            <li><a href="#" class="button smallGrey">3</a></li>
+            <li><a href="#" class="button smallGrey">&gt;</a></li>
+            </ul>
+        </div>
+    </div> --><!-- end 404 container -->
+
+	<div class="wrapper" style="margin-bottom:0px;">
+        	{% if paginate.previous %}
+            <div class="button smallGrey">
+        		{{ '&lt;' | link_to: paginate.previous.url }}
+            </div>
+        	{% endif %}
+
+    		{% for part in paginate.parts %}
+
+    			<div class="button smallGrey"> {{ part.title | link_to: part.url, 'button, smallGrey' }}</div>
+    		{% endfor %}
+
+            {% if paginate.next %}
+            <div class="button smallGrey">
+                {{ '&gt;' | link_to: paginate.next.url }}
+            </div>
+            {% endif %}
+    </div>
+

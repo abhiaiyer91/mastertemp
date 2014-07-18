@@ -1,0 +1,19 @@
+<!-- start recent blog posts -->
+<section class="blogMasonry">
+    <div class="container">
+        <h2>RECENT <span>BLOG</span> POSTS<br/>{% include 'divider' %}</h2>
+        <div class="more text-center"> <a href="/blogs/blog">VIEW ALL BLOGS</a></div>
+
+        <div class="row">
+            {% include 'blog-desktop' %}
+            {% include 'blog-tablet' %}
+            {% include 'blog-sm' %}
+            {% include 'blog-mobile' %}
+        </div><!-- end row -->
+
+        <!-- URL GOTO FOR ACCOUNT TEAM -->
+          <div id="newsletter"></div>
+        <!-- END URL GOTO -->  
+    </div><!-- end blog post container -->
+
+</section><!-- end blog post section -->

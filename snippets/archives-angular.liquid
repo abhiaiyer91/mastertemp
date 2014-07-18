@@ -1,0 +1,17 @@
+<ul class="categoryList" ng-controller="ArchiveCtrl">
+	
+	{% for article in blogs["blog"].articles %}
+		<div ng-init="add('{{article.published_at|date:'%B'}}')"></div>
+	{% endfor %}
+	{% for article in blogs["News"].articles %}
+		<div ng-init="add('{{article.published_at|date:'%B'}}')"></div>
+	{% endfor %}
+
+
+	{% raw %}
+	<li ng-repeat="month in months" ng-if="month.size">
+		<a href="/search?q={{month.name}}&type=blog" class="catNum">{{month.size}}</a><span>{{month.name}}</span>
+		<a href="/search?q={{month.name}}&type=blog" class="button smallGrey">VIEW</a>
+	</li>
+	{% endraw %}
+</ul>

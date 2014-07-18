@@ -1,0 +1,76 @@
+                <ul class="categoryList">
+
+
+
+{% assign the_month_count = '' %}
+
+
+{% for article in blogs["blog"].articles %}
+ {% if article.tags contains'january' %}
+  {% capture temp %}{{ jan }}*{% endcapture %}
+  {% assign jan = temp %}
+{% else %}
+{% endif %}
+ {% if article.tags contains'february' %}
+  {% capture temp %}{{ feb }}*{% endcapture %}
+  {% assign feb = temp %}
+{% else %}
+{% endif %}
+ {% if article.tags contains'march' %}
+  {% capture temp %}{{ mar }}*{% endcapture %}
+  {% assign mar = temp %}
+{% endif %}
+ {% if article.tags contains'april' %}
+  {% capture temp %}{{ apr }}*{% endcapture %}
+  {% assign apr = temp %}
+{% endif %}
+ {% if article.tags contains'may' %}
+  {% capture temp %}{{ may }}*{% endcapture %}
+  {% assign may = temp %}
+{% endif %}
+ {% if article.tags contains'june' %}
+  {% capture temp %}{{ jun }}*{% endcapture %}
+  {% assign jun = temp %}
+{% endif %}
+ {% if article.tags contains'july' %}
+  {% capture temp %}{{ jul }}*{% endcapture %}
+  {% assign jul = temp %}
+{% endif %}
+ {% if article.tags contains'august' %}
+  {% capture temp %}{{ aug }}*{% endcapture %}
+  {% assign aug = temp %}
+{% endif %}
+ {% if article.tags contains'september' %}
+  {% capture temp %}{{ sep }}*{% endcapture %}
+  {% assign sep = temp %}
+{% endif %}
+ {% if article.tags contains'october' %}
+  {% capture temp %}{{ oct }}*{% endcapture %}
+  {% assign oct = temp %}
+{% endif %}
+ {% if article.tags contains'november' %}
+  {% capture temp %}{{ nov }}*{% endcapture %}
+  {% assign nov = temp %}
+{% endif %}
+ {% if article.tags contains'december' %}
+  {% capture temp %}{{ dec }}*{% endcapture %}
+  {% assign dec = temp %}
+{% endif %}
+{% endfor %}
+
+
+
+<li><a href="#" class="catNum">{{jan.size}}</a>January<a href="/search?q=January&type=blog" class="button smallGrey">VIEW</a></li>
+<!-- <li><a href="#" class="catNum">{{feb.size}}</a>February<a href="/search?q=February&type=blog" class="button smallGrey">VIEW</a></li> -->
+<li><a href="#" class="catNum">{{mar.size}}</a>March<a href="/search?q=March&type=blog" class="button smallGrey">VIEW</a></li>
+<li><a href="#" class="catNum">{{apr.size}}</a>April<a href="/search?q=April&type=blog" class="button smallGrey">VIEW</a></li>
+<li><a href="#" class="catNum">{{may.size}}</a><span>May</span><a href="/search?q=May&type=blog" class="button smallGrey">VIEW</a></li>
+<!-- <li><a href="#" class="catNum">{{jun.size}}</a>June</a><a href="/search?q=June&type=blog" class="button smallGrey">VIEW</a></li>
+<li><a href="#" class="catNum">{{jul.size}}</a>July</a><a href="/search?q=July&type=blog" class="button smallGrey">VIEW</a></li>
+<li><a href="#" class="catNum">{{aug.size}}</a>August</a><a href="/search?q=August&type=blog" class="button smallGrey">VIEW</a></li>
+<li><a href="#" class="catNum">{{sep.size}}</a>September<a href="/search?q=September&type=blog" class="button smallGrey">VIEW</a></li>
+<li><a href="#" class="catNum">{{oct.size}}</a>October<a href="/search?q=October&type=blog" class="button smallGrey">VIEW</a></li> -->
+<!-- <li><a href="#" class="catNum">{{nov.size}}</a>November<a href="/search?q=November&type=blog" class="button smallGrey">VIEW</a></li> -->
+<li><a href="#" class="catNum">{{dec.size}}</a>December<a href="/search?q=December&type=blog" class="button smallGrey">VIEW</a></li>
+
+                </ul>

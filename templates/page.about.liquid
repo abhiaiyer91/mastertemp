@@ -1,0 +1,64 @@
+<section class="about">
+		
+	<h2><span>{{page.title}} </span>{{settings.athlete}}<br/>{% include 'divider' %}</h2>
+
+	<div class="padding-btm15" ng-controller="AboutCtrl">
+		<div class="container">
+			<div class="owlcarousel">
+				{% if settings.bio1_show %}
+				<div class="text-center">
+					<img class="img-responsive" src="{{settings.bio1_url}}" alt="">
+				</div>
+				{% endif %}
+				{% if settings.bio2_show %}			
+				<div class="text-center">
+					<img class="img-responsive" src="{{settings.bio2_url}}" alt="">
+				</div>
+				{% endif %}
+				{% if settings.bio3_show %}
+				<div class="text-center">
+					<img class="img-responsive" src="{{settings.bio3_url}}" alt="">
+				</div>
+				{% endif %}
+				{% if settings.bio4_show %}			
+				<div class="text-center">
+					<img class="img-responsive" src="{{settings.bio4_url}}" alt="">
+				</div>
+				{% endif %}
+				{% if settings.bio5_show %}
+				<div class="text-center">
+					<img class="img-responsive" src="{{settings.bio5_url}}" alt="">
+				</div>
+				{% endif %}
+				{% if settings.bio6_show %}			
+				<div class="text-center">
+					<img class="img-responsive" src="{{settings.bio6_url}}" alt="">
+				</div>
+				{% endif %}							
+			</div>
+		</div>
+	</div>
+
+	<div class="about-content">
+		<div class="container">
+			{{page.content}}
+		</div>
+	</div>
+	
+	{% comment %}
+	{% include 'quiz' %}
+	{% endcomment %}
+
+	{% if settings.stats_show %}
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-10">
+				<img class="img-responsive" src="{{settings.stats_url}}" alt="">
+			</div>
+			<div class="col-sm-1"></div>
+		</div>
+	</div>
+	{% endif %}
+
+</section>

@@ -1,0 +1,17 @@
+{% raw %}
+<section class="celeb" ng-controller="SoftballCtrl" ng-cloak>
+<h2 class="text-center">{{title}}<br>{%endraw%}{% include 'divider' %}</h2>
+	{%raw%}
+	<div class="container">
+			<div class="col-md-2 col-sm-3 col-xs-4" ng-repeat="celeb in gallery">
+				<img ng-src="{{celeb.src}}" alt="" class="img-responsive">
+				<div class="thumbnail">
+					<h4>{{celeb.name}}</h4>
+					<h4>{{celeb.role}}</h4>
+				</div>
+				<br>
+			</div>
+
+	</div>
+</section>
+{% endraw %}

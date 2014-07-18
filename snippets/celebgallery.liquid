@@ -1,0 +1,28 @@
+{% raw %}
+<section class="grey_bg" ng-controller="CelebrityCtrl">
+	<h2 class="text-center white">{{title}}<br>{%endraw%}{% include 'divider' %}</h2>
+	{%raw%}
+		<div id="owl-demo">
+			<div class="item" ng-repeat="celeb in gallery">
+				<img ng-src="{{celeb.src}}">
+			</div>													
+		</div>
+</section>
+{% endraw %}
+
+<section class="white_bg" ng-controller="FanCtrl">
+<div class="container">
+     {% raw %}
+	<h2 class="text-center">{{softbal_title}}<br>{%endraw%}{% include 'divider' %}{% raw %}</h2>
+		<div class="row">
+			<div class="col-lg-{{pics.col}} blogPostCreative {{pics.wide}}" ng-repeat="pics in softballmedia">
+                <div class="blogThumb">
+                    <a href="{{pics.imgsrc}}" rel="prettyPhoto"><img ng-src="{{pics.imgsrc}}" alt=""/></a>
+                </div>
+            </div>
+        {% endraw %}                      
+        </div> 
+</div>
+<br>
+<br>
+</section>

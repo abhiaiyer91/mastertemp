@@ -1,0 +1,24 @@
+<!-- start sidebar -->
+<div class="col-lg-4 col-md-4 sidebar hidden-sm hidden-xs">
+
+    <!-- SEARCH -->
+    <form class="searchForm" method="get" action="/search" role="search">
+        <input type="text" name="q" onfocus="if(this.value == 'Search my blogs') { this.value = ''; }" value="Search my blogs" class="input-tall"/>
+        <input type="hidden" name="type" value="blog" />
+    </form>
+    
+    <!-- RELATED NEWS -->
+    <h4>RELATED NEWS</h4>
+    <div class="dividerWidget"></div>
+    {% include 'related-news' %}
+    
+    <!-- ARCHIVE -->
+    <div class="column-right-inner">
+        <h4>ARCHIVE</h4>
+        <div class="dividerWidget"></div>
+        {% include 'archives-angular' %}
+    </div>
+
+</div>
+<!-- end sidebar-->          
+

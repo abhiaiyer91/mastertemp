@@ -1,0 +1,63 @@
+<!-- start work preview -->
+<section class="gear">
+    <div class="container">
+        <h2 class="text-center">OFFICIAL {{settings.athlete}} <span>GEAR</span> <br/>{% include 'divider' %}</h2>
+        <div class="more text-center"> <a href="collections/all-products">VIEW ALL GEAR</a></div>
+    </div>
+    <div class="container">
+        <div class="row shopList hidden-xs">
+            {% for product in collections.all-products.products limit: 20 %}
+            <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+                <a href="{{ product.url | within: collection }}" class="shopItem">
+                    <div class="overlay"><h4>VIEW ITEM</h4></div>
+                    {% if product.tags contains 'sale' %}
+                    <div class="button smallGrey sale">SALE</div>
+                    {% elsif product.available %}
+                    {% else %}
+                    <div class="button smallGrey sale">SOLDOUT</div>
+                    {% endif %}
+                    <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="" class="shopImg" />
+                </a>
+                <div class="shopItemDetails">
+                    <a href="{{product.url}}"><h4 class="text-left">{{ product.title}}</h4></a>
+                    {% if product.tags contains 'sale' %}
+                    <p class="shopPrice text-left">{{ product.price | money }}{% if product.compare_at_price_max > product.price %} <span class="old-price">{{ product.compare_at_price_max | money }}</span>{% endif %}</p>
+                    {% else %}
+                    <p class="shopPrice text-left"> {{ product.price | money }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="owlcarousel visible-xs">
+            {% for product in collections.all-products.products limit: 20 %}
+            <div class="text-center">
+                <a href="{{ product.url | within: collection }}" class="shopItem">
+                    <div class="overlay"><h4>VIEW ITEM</h4></div>
+                    {% if product.tags contains 'sale' %}
+                    <div class="button smallGrey sale">SALE</div>
+                    {% elsif product.available %}
+                    {% else %}
+                    <div class="button smallGrey sale">SOLDOUT</div>
+                    {% endif %}
+                    <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="" class="shopImg" />
+                </a>
+                <div class="shopItemDetails">
+                    <a href="{{product.url}}"><h4 class="text-left">{{ product.title}}</h4></a>
+                    {% if product.tags contains 'sale' %}
+                    <p class="shopPrice text-left">{{ product.price | money }}{% if product.compare_at_price_max > product.price %} <span class="old-price">{{ product.compare_at_price_max | money }}</span>{% endif %}</p>
+                    {% else %}
+                    <p class="shopPrice text-left"> {{ product.price | money }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section><!-- end work preview section -->
+
+

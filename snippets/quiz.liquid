@@ -1,0 +1,63 @@
+<div class="about-quiz padding-btm15" ng-controller="QuizCtrl">
+		<div class="container">
+			<h2>{{settings.athlete}}<span> QUIZ</span><br/>{% include 'divider' %}</h2>
+			<div class="quiz-box color1_bg">
+			<br>
+				{% raw %}
+				<div>
+					<div class="row">
+						<div class="col-sm-1"></div>
+						<div class="visible-xs">
+							<h2 class="padding-top30 text-center"><span>{{resp}}</span></h2>
+						</div>
+						<div class="col-sm-2">
+							<h4 class="text-center">Score</h4>
+							<div class="scoreboard text-center"><span ng-class="{'score-animation': getBool}">{{getScore()}}</span></div>
+						</div>
+						<div class="col-sm-6 hidden-xs">
+							<h2 class="padding-top30 text-center"><span>{{resp}}</span></h2>
+						</div>
+						<div class="col-sm-2" ng-show="playMes">
+							<div class="visible-xs padding-top5"></div>
+							<h4 class="text-center">Average</h4>
+							<div class="scoreboard text-center"><span ng-class="{'score-animation': getBool}">{{getAverage()}}</span></div>
+						</div>
+						<div class="col-sm-2" ng-hide="playMes"></div>
+						<div class="col-sm-1"></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-2"></div>
+						<div class="col-sm-8 padding-top15">
+						<div class="padding-top15 question-box blue_bg">
+							<div ng-show="playMes">
+								<h2 class="text-center white">Thanks for playing!</h2>
+								<div class="text-center">
+									<a class="text-center btn button keyboard blue_bg white btn-success" ng-click="reset()">Play Again</a>
+									<a href="/collections/all-products" class="text-center btn button keyboard blue_bg white btn-success">Gear</a>
+								</div>
+							</div>
+							<div ng-repeat="ques in testbank" ng-show="whatAttempt($index)" class="question-animation">
+								
+								<div class="row">
+									<h3 class="white text-center">{{ques.question}}</h3>
+									<h5 ng-repeat="answer in ques.answers" ng-show="answer.correct && answerImage" class="revealed text-center">{{answer.ans}}</h5>
+									<div class="text-center">
+										<img src="{{ques.img}}" ng-show="answerImage" class="answer-image-animation img-thumbnail" alt="">
+										<div class="padding-btm5" ng-show="playMes"></div>
+									</div>
+								</div>
+								<div class="text-center">
+									<a ng-hide="answerImage" class="btn button keyboard blue_bg white btn-success" ng-repeat="answer in ques.answers" ng-click="keepScore(answer.correct)">{{answer.ans}}</a>
+									<div ng-hide="playMes"><a ng-show="answerImage" ng-click="next()" class="answer-image-animation btn button keyboard blue_bg white btn-success">Next Question</a></div>
+								</div>
+								
+							</div>
+						</div>
+						</div>
+						<div class="col-sm-2"></div>
+					</div>
+				</div>
+				{% endraw %}
+			</div>
+		</div>
+	</div>

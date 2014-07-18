@@ -1,0 +1,90 @@
+
+{{page.content}}
+
+<div class="container account">
+  <div class="row">
+    <h2 class="text-center bebas">CONTACT ME</h2>
+    <br>
+  <div class="row relative">
+    <div class="col-sm-4 col-xs-12">
+      {% form 'contact' %}
+      {% if form.posted_successfully? %}
+          <div class="successForm feedback">
+            <p>Thanks for contacting us! We'll get back to you as soon as possible.</p>
+          </div>
+      {% endif %}
+
+      {% if form.errors %}
+      <div class="errorForm feedback">
+        <!-- {{ form.errors.size }} or {{ form.errors | size }} -->
+        <p>Oops, sorry. We were unable to submit your inquiry because it contained {{ form.errors | size | pluralize: 'an error', 'a few errors' }}. Please correct the following and submit again:</p>
+        {% for field in form.errors %}
+          <p>The {{ field | capitalize | replace: 'Body', 'Message' }} field {{ form.errors.messages[field] }}.</p>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <div id="contactFormWrapper">
+        <p>
+          <!-- <label>Your Name:</label><br/> -->
+          <input type="text" id="contactFormName" name="contact[name]" placeholder="NAME" />
+        </p>
+        <p>
+          <!-- <label>Email:</label><br/> -->
+          <input type="email" id="contactFormEmail" name="contact[email]" placeholder="E-MAIL ADDRESS" />
+        </p>
+        <p>
+          <!-- <label>Subject:</label><br/> -->
+          <input type="text" id="contactFormTelephone" name="contact[subject]" placeholder="SUBJECT" />
+        </p>
+        <p>
+        <!--   <label>Message:</label><br/> -->
+          <textarea rows="15" cols="75" id="contactFormMessage" name="contact[body]" placeholder="MESSAGE (MAX 300 CHARS)"></textarea>
+        </p>
+
+        <p>
+          <input type="submit" id="contactFormSubmit" value="SEND" class="subHeadBtn" style="border: 2px solid black; " />
+        </p>
+      </div><!-- contactWrapper -->
+
+      {% endform %}
+    </div>
+
+    <div class="col-sm-8 col-xs-12 contact-right">
+      <div class="row">
+        <br>
+        <div class="col-sm-4">
+        <br/>
+          <p>Got a question?</p>
+          <hr>
+          <p>For booking, events, or other related inquiries to {{settings.athlete}} please contact:</p>
+           <p>{{settings.contact1_text}} <a href="mailto:{{settings.contact1_email}}">{{settings.contact1_email}}</a></p>
+          <hr>
+          <p>Follow me!</p>
+          <a href=""><img src="{{'facebook-grey.png' | asset_url}}" alt=""/></a>
+          <a href=""><img src="{{'instagram-grey.png' | asset_url}}" alt=""/></a>
+          <a href=""><img src="{{'twitter-grey.png' | asset_url}}" alt=""/></a>
+          <a href=""><img src="{{'youtube-grey.png' | asset_url}}" alt=""/></a>
+        </div>
+
+        <div id="contact-img">
+          <br>
+          <div class="col-sm-8 text-right">
+            <img src="{{'shannon.png' | asset_url}}" alt=""/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+  </div>
+  <br>
+</div>
+</div>
+  <style>
+      .contact-form {margin:1em 0}
+      .feedback {padding:0.5em 0.7em;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px}
+      .feedback p {padding:0.5em 0 !important;margin:0 !important}
+      .successForm {background:#BDE0A8;color:green}
+      .errorForm {background:#EEBDBD;color:red}
+      </style>
+</div>

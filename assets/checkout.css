@@ -1,0 +1,322 @@
+
+
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+/* This is the CSS file that styles the checkout pages on Shopify's site */
+body { padding: 0 0; color: #888; background-color: #DEDEDE; min-width: 320px; font-family: 'Lato', sans-serif; }
+a, #discounts-body-link, span.hint a { color: #888;
+  transition: all 0.25s ease 0s;
+  -moz-transition: all 0.25s ease 0s;
+  -webkit-transition: all 0.25s ease 0s; }
+a:hover, #discounts-body-link:hover, span.hint a:hover { color: #03afef; }
+h3 { color: #0f2a40; }
+#container { overflow: hidden; font-size: 12px; }
+#content { width: 100%; padding: 20px 10% 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.form td.lbl { width: auto; }
+.lbl label,
+ul.inline label,
+#credit-card-info label { display: block; margin: 5px 0 0; font-size: 12px; font-weight: normal; color: #888; }
+#billing-is-shipping label { margin: 5px 0 0; font-size: 12px; font-weight: normal; color: #888; }
+ul.inline select { width: 100%!important; margin-top: 10px; padding: 10px 0; }
+input { width: 100% !important; padding: 10px !important; font-size: 14px; color: #0f2a40; border: 1px solid #ccc !important;
+  	box-sizing: border-box;
+  	-moz-box-sizing: border-box;
+  	-webkit-box-sizing: border-box;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+#header #logo { position: absolute; top: 15px; left: 15px; height: 84px; width: 106px; text-indent: -9999em; background: transparent url(https://76ad72b3db5c6e89adba-b9461d1874e7740690ffb4defe625635.ssl.cf1.rackcdn.com/new-logo.png) no-repeat -6px -15px; background-size: 100%; }
+#header h1 { display: none; }
+form input:focus,
+form textarea:focus { outline: 1px solid #0076a3; border-color: #0076a3; }
+form tr { overflow: hidden; }
+form td.lbl { text-align: left; }
+#content #new_order td { display: block; width: 100% !important; }
+#content #new_order td input { width: auto; }
+.form td input.short { width: 100% !important; }
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+.form td input,
+.horizontal .form td input,
+.form td input.short { border-radius: 0px !important; -webkit-border-radius: 0px!important; }
+input[type="radio"] { width: auto !important; padding: 10px!important; border-radius: 10px;
+	-moz-appearance: checkbox;
+  	-webkit-appearance: checkbox;
+}
+input[type="checkbox"] { -webkit-appearance: checkbox; }
+.field-with-errors { line-height: 1.2; position: relative; padding: 0; border: none; background-color: transparent; }
+
+#content .field-with-errors br { display: none; }
+#content .field-with-errors input { border: 1px solid #b30905 !important; }
+#content .field-with-errors .error-message, #content .horizontal .field-with-errors .error-message { position: absolute; top: -16px; right: 0; width: auto; font-size: 9px; font-weight: 400; }
+#new_order .inline li .field-with-errors .error-message, #content .horizontal #new_order .inline li .field-with-errors .error-message { top: -13px; }
+#email .field-with-errors .error-message { top: -20px; }
+#email .field-with-errors input:focus { outline: 1px solid #b30905; }
+
+input#billing_address_province, input#shipping_address_province { margin-top: 10px; }
+
+.loading-spinner { float: none !important; }
+
+#info-bar,
+#main,
+#footer { overflow: hidden; width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+#info-bar { position: absolute; z-index: 100; height: 60px; padding: 15px; font-size: 12px; text-align: right; color: #fff; border: none; background-color: transparent;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+
+#container { width: 100%; margin: 0 auto; }
+#header, #container.slim #header { position: relative; top: 0; left: 0; height: 84px; width: 100%; background-color: #06192E; background-image: none;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+
+
+#main { min-height: 480px; max-width: 1440px; width: 100%; margin: 0 auto; padding: 0; background-color: #f9f9f9; background-image: none; }
+
+#overview { padding: 20px 4% 0; border: none; background-color: #f9f9f9; background-image: none;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+#overview h2 { line-height: 1.94; margin: 0;  font-size: 18px; font-style: italic; font-weight: 100; text-align: center; text-transform: uppercase; color: #0a1b2a; }
+#overview h2:after { content: ""; display: block; width: 67px; margin: 12px auto 25px; border-top: 1px solid #b1e4ff; }
+#overview .hint { color: #888; }
+#products { width: 100%; float: none; border: none; }
+#products #thumbs, #products tbody, #products tr { display: block !important; }
+
+#thumbs { display: none; }
+#thumbs td { overflow: hidden; position: relative; display: block; line-height: 1.4; min-height: 162px; width: 100%; margin-top: 30px; padding: 0px 0 0px 115px; border-bottom: 1px solid #e5e5e5;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+#thumbs tr:first-child td:first-child { margin-top: 0px; }
+#thumbs tr:last-child td:last-child { border-bottom: none; }
+#thumbs div { position: absolute; top: 0px; left: 0; height: auto !important; width: auto !important; padding: 0; border: none; }
+#thumbs img { height: auto; width: 100px; }
+#thumbs h3 { float: left; width: 70%; font-size: 16px;  font-weight: 100; color: #0a1b2a; }
+#thumbs .plist-variant-title { float: left; margin-top: 4px; padding-right: 85px; font-size: 12px; color: #888; }
+#thumbs .plist-line-price { position: absolute; top: 2px; right: 0;  font-size: 14px; color: #888; }
+#wallet { width: 100%; border-top: 1px solid #b1e4ff; margin: 0px 0 0 0; padding: 30px 0; text-align: right; background: none !important; }
+#wallet br { display: none; }
+#cost { font-size: 18px; color: #0a1b2a; }
+
+.thumblist-image { max-width: 60px!important; width: 15%; }
+.thumblist-content { width: 75%; }
+
+#steps {  font-size: 18px; font-style: normal; text-transform: uppercase; color: #0a1b2a; text-align: center; margin: 0 auto; display: block; }
+#steps { display: none; }
+
+#content { position: relative; background-color: #fff;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+#gateway-logos { display: none; position: absolute; bottom: 0px; right: 16%; width: auto; margin: 0; padding: 0; }
+
+#email,
+#addresses,
+#buttons { overflow: hidden; margin: 0; padding: 0; background: none; border: none; }
+#buttons td { vertical-align:top !important }
+#content .group { border: none; background-color: transparent; }
+
+#email label { display: block; margin: 10px 0; font-size: 12px; font-weight: normal; color: #888; }
+
+.group h3, .pgroup h3 { margin-bottom: 20px; font-size: 16px; font-weight: 200; text-transform: capitalize; text-align: center; border-bottom: none; color: #0a1b2a; }
+
+#content .new_order { max-width: 510px; width: 100%; margin: 0 auto; }
+
+#addresses.group h3 { line-height: 1.94; margin: 0;  font-size: 18px; font-style: italic; font-weight: 100; text-transform: uppercase; color: #0a1b2a; }
+#addresses.group h3:after { content: ""; display: block; width: 67px; margin: 12px auto 25px; border-top: 1px solid #b1e4ff; }
+#addresses .multiple_address_selection select { width: 100%; }
+
+#new_order #email,
+.gleft,
+.gright { float: none; width: 100%; margin: 0 0 20px; padding: 0; }
+
+#new_order #email { overflow: visible; margin: 0 0 40px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+#new_order #email input { margin-bottom: 10px; font-size: 14px; }
+#new_order #email .sign-in-message { float: left; width: 100%; margin: 0; font-size: 12px; color: #888; }
+#new_order #email h4.active-customer { line-height: 2; margin: 0; }
+#new_order #email a { float: none; margin-left: 10px; color: #888; }
+#new_order #email a:hover { color: #03AFEF; }
+
+#billing-is-shipping { display: block; margin-top: 30px; text-align: center; }
+#shipping-toggle { width: auto !important; margin-right: 15px; padding: 10px !important; }
+#billing-is-shipping label { position: relative; top: -1px; width: auto !important; padding: 0px !important; }
+
+
+#new_order table,
+#credit-card-info table { width: 100%; }
+#new_order td { vertical-align: middle;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+#new_order .inline li { float: left; width: 100%!important; margin: 0 0 10px 0!important;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+/*
+#buttons { overflow: hidden; text-align: center;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+#buttons input,
+#discounts-body input[type="submit"],
+#gift-cards-body input[type="submit"] { float: right; width: auto !important; margin: 0 0 10px 10px; font-weight: 200; border: none !important; cursor: pointer; background-color: #0f2a40; color: #fff; }
+#discounts-body input[type="submit"],
+#gift-cards-body input[type="submit"] { width: 50%!important; margin-top: 10px; }
+
+#buttons input:hover,
+#discounts-body input[type="submit"]:hover,
+#gift-cards-body input[type="submit"]:hover { color: #03AFEF; }
+#buttons #cancel-purchase { clear: right; float: right; line-height: 2; width: 142px; text-align: center; }
+#buttons #cancel-purchase a,
+#credit-card-info .hint a { display: block; margin-top: 10px; color: #0F2A40; }
+#buttons #cancel-purchase a:hover,
+#credit-card-info .hint a:hover { color: #03AFEF; }
+*/
+
+#buttons { text-align: center; }
+#buttons input, #content input[type=submit] { display: block; min-height: 45px; max-width: 288px; width: 100%; margin: 0 auto; padding: 6px 10px; cursor: pointer;  font-size: 14px; font-style: italic; font-weight: 200; text-transform: uppercase; background-color: #0f2a40; color: #fff;
+  transition: all 0.25s ease 0s;
+  -moz-transition: all 0.25s ease 0s;
+  -webkit-transition: all 0.25s ease 0s;
+}
+#buttons input:hover, #content input[type=submit]:hover { color: #03AFEF; }
+input[type="button"], input[type="submit"], input[type="reset"] { border-radius: 0px; }
+#buttons small { display: inline-block; margin-top: 10px; }
+
+#cancel-purchase { display: block; width: 100%; margin: 10px 0 20px; text-align: center; color: #888; }
+
+#content h3 { line-height: 1.94; margin: 0;  font-size: 18px; font-style: italic; font-weight: 100; text-align: center; text-transform: uppercase; color: #0a1b2a; }
+#content h3:after { content: ""; display: block; width: 67px; margin: 12px auto 25px; border-top: 1px solid #b1e4ff; }
+
+#content input[type=submit] { margin: 20px auto 0; }
+
+
+#content #discounts,
+#content #gift-cards,
+#content #purchase-form { max-width: 500px; width: 100%; margin: 0 auto; }
+#content #discounts,
+#content #gift-cards { text-align: center; }
+
+#discounts-body p:first-child,
+#gift-cards-body p:first-child { height: 32px; }
+
+#purchase-form #payment { text-align: center; }
+#payment .clearfix:after { clear: none; }
+#payment p { margin-bottom: 20px; }
+
+#payment-methods { overflow: hidden; }
+#payment-method .group { padding: 0; }
+#payment-methods li { float: left; width: 50%; padding: 0 10px; text-align: center;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+#payment-methods input { margin: 2px 10px 0 0; }
+#payment-methods label { position: relative; top: -2px; }
+#payment-methods label span { position: static !important; height: auto !important; width: auto !important; font-weight: normal; }
+#payment-methods label img { display: none; }
+
+#credit_card_verification_value { width: auto !important; display: block; margin: 5px 0; text-align: center; }
+
+#credit-card-info label[for=credit_card_number] { float: left; margin-right: 10px; }
+img#credit-card-valid { margin-top: 3px; }
+
+p.hint { line-height: 1.6; margin-bottom: 20px; text-align: center; }
+span.hint a { font-size: 12px; }
+
+#tax_span { position: relative; padding-left: 2px; }
+#tax_span:before { content: "."; position: absolute; top: -5px; left: -1px; height: 1px; width: 1px; }
+
+/*  -- order confirmation -- */
+#container.slim { width: 100%; }
+#container.slim #header { width: auto; }
+#container.slim #main { width: 100%; padding: 30px 16px; background: #f9f9f9; }
+#container.slim #overview { position: relative; float: none; max-width: 340px; width: 100%; margin: 0 auto; padding: 0; }
+#container.slim #overview h2 { text-indent: -9999em; font-size: 0px; color: #0f2a40; }
+#container.slim #overview h2:before { content: "Thank you for your order!"; top: 5px; display: block; width: 100%; font-size: 18px; font-style: italic; font-weight: 300; text-transform: uppercase; text-indent: 0; border-top: none; }
+#container.slim #overview h2:after { content: ""; display: block; width: 67px; margin: 18px auto 25px; border-top: none; border-bottom: 1px solid #b1e4ff; }
+#container.slim #overview table { width: 30%; margin: 20px auto 0; }
+#container.slim #overview td { min-width: 532px; width: auto; }
+#container.slim #overview td img { float: left; }
+#container.slim #overview td h3 { margin-left: 10px; font-size: 13px; color: #888; }
+#container.slim #overview td h3 span { margin-right: 5px; color: #03AFEF; }
+#container.slim #content { float: none; width: 100%; max-width: 340px; margin: 0 auto; padding: 0; text-align: center; background-color: transparent; }
+#container.slim #content .group { margin: 0 auto; padding: 0; }
+#container.slim #content .group:first-child p:last-child { text-indent: -9999em; }
+#container.slim #content p { margin: 0; font-size: 12px; color: #999; }
+#container.slim #content p a { display: block; max-width: 250px; width: 100%; margin: 0px auto 20px auto; padding: 3px 10px 6px; font-size: 13px; text-decoration: none; text-indent: -9999em; box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.15); color: #0d253f; background-color: #fff; }
+#container.slim #content p a:after { content: "Back To Shop"; display: block; margin-top: -20px; text-indent: 0; padding: 10px 10px 6px;  font-size: 14px; font-style: italic; font-weight: 200; text-transform: uppercase; }
+#container.slim #content p a:hover { color: #03AFEF; }
+#container.slim .loading-spinner { display: block; margin-top: 140px!important; }
+#container.slim #footer { width: 100%; background-image: none; }
+
+#footer { max-width: 1440px; padding-bottom: 30px; background: none; background-color: #fff; }
+
+@media (min-width: 568px) {
+    #content .field-with-errors .error-message, #content .horizontal .field-with-errors .error-message { top: -17px; font-size: 10px; }
+}
+
+
+@media (min-width: 768px) {
+    #container.slim #content p a { margin-left: auto; }
+	#thumbs h3 { width: 60%; }
+}
+
+@media (min-width: 1024px) {
+    #container.slim #main { padding: 200px 8%; }
+    #container.slim .loading-spinner { margin-top: 50px!important; }
+}
+
+@media (min-width: 1200px) {
+    #main { display: table; }
+    #overview { float: right; height: 100%; width: 30%; }
+	#overview #products h2 { display: none; }
+    #content { min-height: 480px; height: 100%; width: 70%; }
+	#content #discounts,
+	#content #gift-cards { float: left; width: 50%; }
+	#content #purchase-form { clear: left; }
+	#thumbs h3 { padding-right: 0px; width: auto; }
+	#thumbs .plist-variant-title { margin-bottom: 4px; padding-right: 0px; }
+	#thumbs .plist-line-price { position: static; float: left; clear: both; }
+}
+
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait) {
+   /* your css rules for ipad portrait */
+  #billing-is-shipping label { position: relative; top: -5px; }
+}
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape) {
+   /* your css rules for ipad landscape */
+  #billing-is-shipping label { position: relative; top: -5px; }
+}

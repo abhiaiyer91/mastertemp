@@ -1,0 +1,93 @@
+        <div class="row">
+            <div class="col-lg-8 col-md-8 column-left-inner">
+        {% for article in blogs["blog"].articles %}
+            {% if article.tags contains'classic' %}
+                <div class="blogPostClassic">
+                    <div class="blogThumb">
+                        <a href="{{article.url}}"><img src="{{article.excerpt}}" alt="" class="img-responsive"/></a>
+                        <div class="thumbBar"></div>
+                    </div>
+                    <table border="1" class="blogDetails">
+                    <tr>
+                    <td><a href="#"><img src="{{'dateIcon.png' | asset_url }}" alt="" class="blogIcon" />{{ article.published_at | date: '%b-%d' }}</a></td>
+                    <!-- <td><a href="{{article.url}}#disqus_thread"></a></td> -->
+                    </tr>
+                    </table>
+                    <h4><a href="{{article.url}}">{{article.title}}</a></h4>
+                    <p>POSTED BY: <a href="#">{{settings.athlete}}</a></p>
+                    <p>{{ article.content | strip_html | truncate: 250 }}</p><br/>
+                    <a href="{{article.url}}" class="button blog">READ MORE</a>
+                </div>
+                <div class="dividerWidget"></div>
+            {% endif %}
+            {% if article.tags contains 'photo'%}
+                <div class="blogPostClassic">
+                    <div class="blogThumb">
+                        <ul class="bxsliderBlog">
+                        {{article.excerpt}}
+   <!--                          <li><a href="#"><img src="{{ relative }}images/blogImage2.png" alt="" /></a></li>
+                            <li><a href="#"><img src="{{ relative }}images/blogImage3.jpg" alt="" /></a></li>
+                            <li><a href="#"><img src="{{ relative }}images/blogImage1.png" alt="" /></a></li> -->
+                        </ul>
+                        <div class="thumbBar"></div>
+                    </div>
+                    <table border="1" class="blogDetails">
+                    <tr>
+                <td><a href="#"><img src="{{'dateIcon.png' | asset_url }}" alt="" class="blogIcon" />{{ article.published_at | date: '%b-%d' }}</a></td>
+                <td><a href="{{article.url}}#disqus_thread" data-disqus-identifier="article_1_identifier"></a></td>
+                  <!--   <td><a href="#"><img src="{{ relative }}images/likeIcon.png" alt="" class="blogIcon" />13</a></td> -->
+                    </tr>
+                    </table>
+                    <h4><a href="{{article.url}}">{{ article.title }}</a></h4>
+                    <p>POSTED BY: <a href="#">{{settings.athlete}}</a></p>
+                    <p>{{ article.content | strip_html | truncate: 250 }}</p><br/>
+                    <a href="{{article.url}}" class="button blog">READ MORE</a>
+                </div>
+                <div class="dividerWidget"></div>
+            {% endif %}
+            {% if article.tags contains 'video'%}
+                <div class="blogPostClassic">
+                    <div class="blogThumb">
+                        <iframe class="videoPost" style="border:none;" src="{{article.excerpt}}" allowfullscreen></iframe>
+                        <div class="thumbBar"></div>
+                    </div>
+                    <table border="1" class="blogDetails">
+                    <tr>
+                <td><a href="#"><img src="{{'dateIcon.png' | asset_url }}" alt="" class="blogIcon" />{{ article.published_at | date: '%b-%d' }}</a></td>
+                <td><a href="{{article.url}}#disqus_thread"><img src="{{ 'commentIcon.png' | asset_url}}" alt="" class="blogIcon" />17</a></td>
+                    <td><a href="#"><img src="{{ relative }}images/likeIcon.png" alt="" class="blogIcon" />13</a></td>
+                    </tr>
+                    </table>
+                    <h4><a href="{{article.url}}">{{ article.title }}</a></h4>
+                    <p>POSTED BY: <a href="#">{{settings.athlete}}</a></p>
+                    <p>{{ article.content | strip_html | truncate: 250 }}</p><br/>
+                    <a href="#" class="button blog">READ MORE</a>
+                </div>
+                <div class="dividerWidget"></div>
+            {% endif %}
+
+            {% if article.tags contains 'small'%}
+                <div class="blogPostCreative">
+                    <div class="blogThumb">
+                        <a href="#"><img src="{{article.excerpt}}" alt="" class="blogas"/></a>
+                        <div class="thumbBar"></div>
+                    </div>
+                    <table border="1" class="blogDetails">
+                    <tr>
+                <td><a href="#"><img src="{{'dateIcon.png' | asset_url }}" alt="" class="blogIcon" />{{ article.published_at | date: '%b-%d' }}</a></td>
+                <td><a href="{{article.url}}#disqus_thread"><img src="{{ 'commentIcon.png' | asset_url}}" alt="" class="blogIcon" />17</a></td>
+                    <td><a href="#"><img src="{{ relative }}images/likeIcon.png" alt="" class="blogIcon" />13</a></td>
+                    </tr>
+                    </table>
+                    <h4><a href="{{article.url}}">{{ article.title }}</a></h4>
+                    <p>POSTED BY: <a href="#">{{settings.athlete}}</a></p>
+                    <p>{{ article.content | strip_html | truncate: 250 }}</p><br/>
+                    <a href="#" class="button blog">READ MORE</a>
+                </div>
+                <div class="dividerWidget"></div>
+            {% endif %}
+        {% endfor %}
+
+                <div class="wrapper"></div>
+
+            </div><!-- end posts -->

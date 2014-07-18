@@ -1,0 +1,43 @@
+<div>
+    <div class="col-lg-12">
+        {% if blog.title == 'blog' %}
+            <h4>RELATED NEWS</h4>
+            <div class="dividerWidget"></div>
+            <div class="owlcarousel">
+            {% for article in blogs["news"].articles limit:4%}
+                    <div class="blogPostRelated">
+                        <a href="{{article.url}}" class="shopItem">
+                        <div class="overlay"><h4>VIEW NEWS</h4></div>
+                        <div class="text-center"><img src="{{article.excerpt}}" alt="" class="shopImg blogas img-thumbnail" id="relimg"/></div>
+                        </a>
+                        <div class="shopItemDetails">
+                            <a href="{{article.url}}"><h4>{{article.title | truncate: 20}}</h4></a>
+                            <p>{{article.content | strip_html | truncate: 70}}</p><br>
+                            <div class="text-center"><a href="{{ article.url }}" class="button blog">READ MORE</a></div>
+                        </div>
+
+                    </div>
+            {% endfor %}
+            </div>
+        {% else %}
+            <h4>RELATED BLOGS</h4>
+            <div class="dividerWidget"></div>
+            <div class="owlcarousel">
+            {% for article in blogs["blog"].articles limit:4%}
+                <div class="blogPostRelated">
+                    <a href="{{article.url}}" class="shopItem">
+                    <div class="overlay"><h4>VIEW BLOG</h4></div>
+                    <div class="text-center"><img src="{{article.excerpt}}" alt="" class="shopImg blogas img-thumbnail" id="relimg"/></div>
+                    </a>
+                    <div class="shopItemDetails">
+                        <a href="{{article.url}}"><h4>{{article.title | truncate: 20}}</h4></a>
+                        <p>{{article.content | strip_html | truncate: 70}}</p><br>
+                        <div class="text-center"><a href="{{ article.url }}" class="button blog">READ MORE</a></div>
+                    </div>
+
+                </div>
+            {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</div><!-- end row -->

@@ -1,0 +1,45 @@
+{% if settings.carousel_show %}
+<div class="carousel" id="carousel">
+<ul class="carousel-images" id="carousel-images">
+	{% assign count = 0 %}
+	{% for i in (1..5) %}
+	{% capture show %}carousel{{ i }}_show{% endcapture %}{% capture image %}carousel{{ i }}.jpg{% endcapture %}{% capture title %}carousel_title{{ i }}{% endcapture %}{% capture link %}carousel_link{{ i }}{% endcapture %}{% capture show_product %}carousel_show_product{{ i }}{% endcapture %}{% capture product_name %}carousel_product_name{{ i }}{% endcapture %}{% capture product_price %}carousel_product_price{{ i }}{% endcapture %}
+	{% if settings[show] %}
+	<li{% if i == 1 %} class="current"{% endif %}>
+		{% if settings[link] != '' %}<a href="{{ settings[link] }}">{% endif %}
+		<img src="{{ image | asset_url }}" alt="">
+		{% if settings[title] != ""%}
+		<div class="text">
+			<h2>{{ settings[title] }}</h2>
+			{% if settings[show_product] %}
+			<div class="product">
+				<p>{{ settings[product_name] }}</p>
+				<p class="price">{{ settings[product_price] }}</p>
+			</div>
+			{% endif %}
+		</div>
+		{% endif %} 
+		{% if settings[link] != '' %}</a>{% endif %}
+	</li>
+	{% capture count %}{{ count | plus: 1 }}{% endcapture %}
+	{% endif %}
+	{% endfor %}
+</ul>
+{% if (count != '0') %}
+<ul class="carousel-nav show{{ count }}" id="carousel-nav">
+	<li class="prev disabled"><a href="#" data-action="prev">Previous</a></li>
+	{% for i in (1..5) %}
+	{% capture show %}carousel{{ i }}_show{% endcapture %}{% capture image %}carousel{{ i }}.jpg{% endcapture %}{% capture title %}carousel_title{{ i }}{% endcapture %}{% capture link %}carousel_link{{ i }}{% endcapture %}
+	{% if settings[show] %}
+	<li{% if i == 1 %} class="current first"{% endif %}>
+		<a href="{% if settings[link] != '' %}{{ settings[link] }}{% else %}#{% endif %}" data-action="{{ i | minus: 1 }}">
+		<img src="{{ image | asset_url }}" alt="{{ settings[title] }}">
+		</a>
+	</li>
+	{% endif %}
+	{% endfor %}
+	<li class="next"><a href="#" data-action="next">Next</a></li>
+</ul>
+{% endif %}
+</div>
+{% endif %}

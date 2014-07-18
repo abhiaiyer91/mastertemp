@@ -1,0 +1,32 @@
+<!--start FOUNDATION -->
+<section class="features">
+    <div class="container">
+        <h2>MY <span>FOUNDATION</span><br/><span class="small">{{settings.foundation_name|upcase}}</span><br/>{% include 'divider' %}</h2>
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+               <div class="blogPostClassic">
+                        <div class="blogThumb">
+                            <img src="{{settings.foundation_image}}" class="img-responsive"/>
+                            <!-- <iframe class="videoPost" style="border:none;" src="{{settings.foundation_video}}" allowfullscreen></iframe> -->
+                        </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                        <p>{{settings.foundation_par}}</p>
+                    <div class="row">
+                        <div class="col-sm-7 hidden-xs"></div>
+                        <div class="col-sm-3 col-xs-12">
+                            {% if settings.foundation_link != "" %}
+                            <a href="{{settings.foundation_link}}" target="_blank"><i class=" pull-right fa fa-facebook-square fa-3x"></i></a>
+                            <h4 class="hidden-xs">/ATHLETE FB FOR CHARITY</h4>
+                            {% endif %}
+                        </div>
+
+                    </div>
+                <!-- URL GOTO FOR ACCOUNT TEAM -->
+                 <div id="media"></div>
+                <!-- END URL -->
+            </div>
+        </div><!-- end row -->
+    </div><!-- end FOUNDATION container -->
+</section><!-- end FOUNDATION section -->

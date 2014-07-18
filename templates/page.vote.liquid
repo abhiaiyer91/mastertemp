@@ -1,0 +1,144 @@
+<br>
+<div class="col-xs-12 hidden-xs text-center">
+<!-- OBERTA_AD -->
+<div id='div-gpt-ad-1399407107124-1'>
+<script type='text/javascript'>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1399407107124-1'); });
+</script>
+</div>
+</div>
+
+<!-- TIP_TILE -->
+<div id='div-gpt-ad-1399407107124-3' class="visible-xs col-xs-12 text-center">
+<script type='text/javascript'>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1399407107124-3'); });
+</script>
+</div>
+
+
+<br>
+
+<div ng-controller="votingCtrl">
+	<div class="container">
+	<div class="row">
+		<h1 class="text-center bebas green"><u>ASK ME ANYTHING</u></h1>
+		<p class="text-center">For all my loyal fans heres a place to get to know me! Some sort of intro message here...</p>
+	</div>
+	<br>
+
+
+
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<h2 class="text-left bebas blue"><u>FEATURED QUESTION:</u></h2>
+			<div class="question_wrapper">
+				<div class="thread">
+					{% if settings.question != ' ' %}
+					<div class="row">
+						<div id="flip" class="col-md-12 animated slideInRight">
+							<div class="text-center">
+								<br/>
+								<h2 class="bebas font60 ">"{{ settings.question }}"</h2>
+
+									<p>-- {{ settings.author }} / <i>{{ settings.city }}</i></p>
+
+									<p class="answer text-center green"><a href="#" class="animateclick"> SEE ANSWER >></a></p>
+							</div>
+						</div>
+
+						<div id="ans" class="col-md-12 hidden animated">
+							<div class="text-center">
+								<br/>
+								<h2 class="bebas font60 ">"{{ settings.answer }}"</h2>
+
+
+
+								<!-- 	<p class="answer text-center green"><a href="#" class="animateclick"> SEE QUESTION >></a></p> -->
+							</div>
+						</div>
+
+					</div>
+
+					{% endif %}
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+<br/>
+<br>
+
+</div><!-- container -->
+<section>
+<div class="bottom-form">
+    <div class="content-divider">
+    </div>
+</div>
+<div class="row blue_bg">
+    <div class="col-sm-6 softball-form white_bg">
+        <h2>SUBMIT <span>QUESTIONS</span> <br/>{% include 'divider' %}</h2>
+
+
+        <form id="contactFormWrapper" class="container" ng-submit="submitPost()">
+			<p>
+
+			<input type="text" id="{{post.$id}}" ng-model="post.name" placeholder="Richard Sherman" />
+			</p>
+
+			<p>
+
+			<input type="email" ng-model="post.email" placeholder="richard@example.com" />
+			</p>
+
+			<p>
+
+			<input type="text" ng-model="post.city" placeholder="Seattle, WA" />
+			</p>
+
+			<p>
+
+			<textarea rows="15" cols="75" ng-model="post.question" placeholder="Your Message To Me"></textarea>
+			</p>
+			<p>
+			<input type="submit" value="SEND" class="button subHeadBtn" />
+			</p>
+			</form><!-- contactWrapper -->
+
+
+
+
+    </div>
+
+
+    <div id="recent-span" class="col-sm-6">
+
+        <h2 class="white">RECENT <span>QUESTIONS</span> <br/>{% include 'divider' %}</h2>
+		{% raw %}
+			<div class="answer-box">
+				<h4 class="white"> {{post.question}}</h4>
+					  <p class="white"> {{ post.name }} / {{ post.city }}</p>
+			</div>
+			<br>
+			{{ post.question }}
+			<div class="white">
+				<div ng-repeat="(postId, post) in posts | orderByPriority" ng-if="$index < 4">
+					<div class="answer-box">
+
+					  <h4 class="white"> {{post.question}}</h4>
+					  <p>-- {{ post.name }} / {{ post.city }}</p>
+					</div>
+					<br>
+				</div>
+			</div>
+		{% endraw %}
+		<div class="text-center">
+			<a href="#" class="button subHeadBtn" target="_blank"> VIEW MORE </a>
+			<br/>
+		</div>
+	</div>
+</div>
+</section>
+</div>
+
+

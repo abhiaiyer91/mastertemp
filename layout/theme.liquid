@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html ng-app="Athlete">
+
+<head>
+    {{content_for_header}}
+    {% include 'head' %}
+</head>
+
+
+
+<body ng-controller="MainCtrl">
+<!--CAPTCHA -->
+<script type="text/javascript">
+     $(document).ready(function() {
+       var n1 = Math.round(Math.random() * 10 + 1);
+         var n2 = Math.round(Math.random() * 10 + 1);
+       $("#question").val(n1 + " + " + n2);
+       $(".comment-form").submit(function (e) {
+               if (eval($("#question").val()) != $("#answer").val()) {
+                     $("#answer").css('box-shadow', '0px 0px 7px red');
+                     e.preventDefault(); 
+               } 
+         });
+    });
+     $(document).ready(function() {
+       var n1 = Math.round(Math.random() * 10 + 1);
+         var n2 = Math.round(Math.random() * 10 + 1);
+       $("#questions").val(n1 + " + " + n2);
+       $(".comment-forms").submit(function (e) {
+               if (eval($("#questions").val()) != $("#answers").val()) {
+                     $("#answers").css('box-shadow', '0px 0px 7px red');
+                     e.preventDefault(); 
+               } 
+         });
+    });     
+ </script>
+
+ <!-- END CAPTCHA -->
+	<!--FB SHARE SCRIPT -->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1456266181256701";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	</script>
+
+	<!--NAVBAR AND TOOLBAR -->
+	{% comment %}
+	{% unless page.handle == 'foundation' %}
+		{% include 'navbar' %}
+	{% endunless %}
+	{% if page.handle == 'foundation' %}
+		{% include 'foundation-navbar' %}
+	{% endif %}
+	{% endcomment %}
+	{% include 'navbar' %}
+
+	<!-- SOCIAL STICKY SHARES -->
+	{% include 'share-wrap' %}
+
+
+	<!-- PRODUCT VIEW LAYOUTS -->
+	{% if template == 'collection' or template == 'product' %}
+		<div class="account">
+			<!-- {% include 'breadcrumb' %} -->
+			{{ content_for_layout }}
+		</div>
+	{% elsif template == 'index' %}
+	{{ content_for_layout }}
+	{% else %}
+		<div class="account">
+			{{ content_for_layout }}
+		</div>
+	{% endif %}
+
+	{% include 'social' %}
+
+	{% include 'footer' %}
+	{% include 'bottom-contact' %}
+	{% include 'scripts' %}
+
+
+</body>
+
+</html>

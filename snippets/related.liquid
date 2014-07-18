@@ -1,0 +1,49 @@
+{% if settings.related_type != 'none' && collection %}	
+{% assign count = 1 %}
+{% capture relateditems %}
+{% for item in collection.products %}
+{% if (count != '5') %}
+{% if (item.id != product.id) %}
+{% assign valid = true %}
+{% if settings.related_type == 'tag' %}
+{% if (item.tags.first != product.tags.first %}
+{% assign valid = false %}
+{% endif %}
+{% endif %}
+{% if settings.related_type == 'other_tags' %}
+{% if (item.tags.first == product.tags.first %}
+{% assign valid = false %}
+{% endif %}
+{% endif %}
+{% if valid %}
+<li class="{% cycle 'first', 'second', 'third', 'fourth last' %}{% if item.compare_at_price_max > item.price_max %} sale{% endif %}">
+<a href="{{ item.url }}">
+<span class="image">
+{% if item.compare_at_price_max > item.price_max %}<span class="sale-banner">Sale</span>{% endif %}
+<img src="{{ item.images.first | product_img_url: 'medium' }}" alt="{{ item.title | escape }}">
+</span>
+<b>{{ item.title | escape }}</b>
+<em class="price{% if item.compare_at_price_max > item.price_max %} sale{% endif %}">
+{% if item.compare_at_price_max > item.price_max %}
+<del class="compare-at-price">{{ item.compare_at_price_max | money }}</del>
+{% endif %}
+{{ item.price | money }}
+</em>
+</a>
+</li>
+{% capture count %}{{ count | plus:1 }}{% endcapture %}
+{% endif %}
+{% endif %}
+{% endif %}
+{% endfor %}
+{% endcapture %}
+{% capture relatedsize %}{{ relateditems | strip_newlines | size }}{% endcapture %}
+{% if relatedsize != '0') %}
+<div class="clear">
+	<h2 class="related">{{ settings.related_title | escape }}</h2>
+	<ul class="products quarter">
+		{{ relateditems }}
+	</ul>
+</div>
+{% endif %}
+{% endif %}

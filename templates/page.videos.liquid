@@ -1,0 +1,31 @@
+	<div class="container">              
+        <div class="inner_content">
+		  <div class="row">
+			<div class="col-sm-12 pagination-centered text-center">
+				<h2 class="section-title-white padtop100">{{ page.title }}</h2>
+			</div>
+		  </div>	
+    		<hr></hr>
+
+            {% raw %}
+           <div ng-controller="vimeoCtrl" id="itemContainer"> 
+      
+      <div class="results">
+        <div class="row">
+          <div class="col-sm-4"ng-repeat="result in data">
+
+  <div class="vendor">
+                                <iframe ng-src="{{trustSrc(result.id)}}" allowfullscreen frameborder="0"></iframe>
+                            </div>
+          {{result.title}}
+
+            <br>
+          </div>
+        </div>
+      </div>                                   
+    
+            </div>
+            {% endraw %}
+       
+        </div>
+    </div>

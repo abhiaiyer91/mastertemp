@@ -1,0 +1,20 @@
+HELLO WORLD
+
+{% comment %}
+            <div ng-repeat="slide in slides">
+            {% if customer %}
+                {% raw %}
+                <a href="#" ng-click="open(slide);select();">
+                    <img ng-src="{{slide.image}}" alt="" class="img-responsive">
+                </a>
+                {% endraw %}
+            {% else %}
+                {% raw %}
+                <a href="#" ng-click="open(slide);">
+                    <img ng-src="{{slide.image}}" alt="" class="img-responsive">
+                </a>
+                 {% endraw %}
+            {% endif %}
+            </div>
+
+        {% endcomment %}

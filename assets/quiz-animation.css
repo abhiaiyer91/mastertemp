@@ -1,0 +1,137 @@
+.scoreboard {
+  background-image: url(../assets/scoreboard.jpg);
+  color: white;
+  font-size: 30px;
+  font-weight: 900;
+}
+.scoreboard > span {
+  text-shadow: 5px 5px 0 rgba(0, 0, 0, 1);
+}
+.revealed { color: #fff; font-size:16px; }
+.quiz-box,
+.question-box {
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+	border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 767px) {
+  .scoreboard {
+    width: 50%;
+    margin-left: 25%;
+  }
+}
+
+/* QUESTION ANIMATION */
+
+.question-animation,.resp-animation {
+	position: relative;
+}
+.question-animation.ng-hide {
+  -webkit-animation: 1s fadeOut;
+  animation: 1s fadeOut;
+}
+.question-animation.ng-hide-remove {
+	-webkit-animation: 1s fadeIn;
+	animation: 1s fadeIn;
+}
+
+/* SCORE ANIMATION */
+.score-animation-add {
+	-webkit-animation: 1s fadeIn;
+	animation: 1s fadeIn;
+}
+.score-animation-remove {
+  -webkit-animation: 1s fadeOut;
+  animation: 1s fadeOut;
+}
+/*.resp-animation-add,
+.resp-animation-remove {
+	display: inline-block;
+	-webkit-animation: 1s growToShrink;
+	animation: 1s growToShrink;
+}*/
+
+/* ANSWER IMAGE ANIMATION */
+
+.answer-image-animation.ng-hide {
+  -webkit-animation: 1s fadeOut;
+  animation: 1s fadeOut;
+}
+.answer-image-animation.ng-hide-remove {
+	-webkit-animation: 1s fadeIn;
+	animation: 1s fadeIn;
+}
+
+
+/* KEYFRAME ANIMATIONS */
+
+@-webkit-keyframes slideInRight {
+  from {
+    margin-left: 2000px;
+    opacity: 0;
+  }
+  to {
+    margin-left: 0;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slideOutLeft {
+  from {
+    right: 0;
+    opacity: 1;
+  }
+  to {
+    right: 1000px;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes slideDown {
+  from {
+    margin-top: -1000px;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes growToShrink {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.75);
+  }
+  50% {
+	transform: scale(2.0);
+  }
+  75% {
+	transform: scale(1.75);
+  }
+  100% {
+	transform: scale(1);
+  }
+}
+
+

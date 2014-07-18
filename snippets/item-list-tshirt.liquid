@@ -1,0 +1,26 @@
+        <div class="row shopList">
+            {% for product in collections.t-shirts.products %}
+            <div class="col-lg-3 col-md-3 col-xs-6">
+                <a href="{{product.url}}" class="shopItem">
+                <div class="overlay"><h4>VIEW ITEM</h4></div>
+                <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="" class="shopImg" />
+                </a>
+                <div class="shopItemDetails">
+                    <a href="{{product.url}}"><h4>{{product.title}}</h4></a>
+                    <p class="shopPrice">{{ product.price | money }}</p>
+                </div>
+            </div>
+            {% endfor %}
+
+<!--             <div class="col-lg-3 col-md-3 col-xs-6">
+                <a href="shop_single.html" class="shopItem">
+                <div class="overlay"><h4>VIEW ITEM</h4></div>
+                <div class="button smallGrey sale">SALE!</div>
+                <img src="{{ relative }}images/shopImage2.jpg" alt="" class="shopImg" />
+                </a>
+                <div class="shopItemDetails">
+                    <a href="shop_single.html"><h4>PRODUCT TITLE</h4></a>
+                    <p class="shopPrice"><span>$26.99</span> $19.99</p>
+                </div>
+            </div> -->
+        </div><!-- end row -->

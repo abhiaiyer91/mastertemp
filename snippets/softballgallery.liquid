@@ -1,0 +1,79 @@
+<br>
+<div class="col-xs-12 hidden-xs text-center">
+<!-- OBERTA_AD -->
+<div id='div-gpt-ad-1399407107124-1'>
+<script type='text/javascript'>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1399407107124-1'); });
+</script>
+</div>
+</div>
+
+<!-- TIP_TILE -->
+<div id='div-gpt-ad-1399407107124-3' class="visible-xs col-xs-12 text-center">
+<script type='text/javascript'>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1399407107124-3'); });
+</script>
+</div>
+
+
+<br>
+{% raw %}
+<section class="white_bg" ng-controller="SoftballCtrl">
+	<h2 class="text-center">{{title_2014}}<br>{%endraw%}{% include 'divider' %}</h2>
+	{%raw%}
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3 {{celeb.mobile}} text-center" ng-repeat="celeb in coaches2014">
+					<img ng-src="{{celeb.src}}" class="img-thumbnail">
+					<p class="lead bebas">{{celeb.name}}</p>
+				</div>
+			</div>
+			<br>
+<!-- 					<div class="text-center">
+						<a href="/pages/softball-celebs-2014" class="button subHeadBtn">VIEW MORE </a>
+					</div> -->
+		</div>
+</section>
+{% endraw %}
+
+{% raw %}
+<section class="grey_bg" ng-controller="SoftballCtrl">
+	<h2 class="text-center white">{{title}}<br>{%endraw%}{% include 'divider' %}</h2>
+	{%raw%}
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3 {{celeb.mobile}} text-center" ng-repeat="celeb in coaches">
+					<img ng-src="{{celeb.src}}" class="img-thumbnail">
+					<p class="lead white bebas">{{celeb.name}}</p>
+				</div>
+			</div>
+			<br>
+			<div class="text-center">
+        		<a href="/pages/softball-celebs-2013" class="button subHeadBtn">SEE 2013 ROSTER </a>
+        	</div>
+		</div>
+</section>
+{% endraw %}
+
+<section class="white_bg" ng-controller="FanCtrl">
+<div class="container">
+     {% raw %}
+	<h2 class="text-center">{{softball_title}}<br>{%endraw%}{% include 'divider' %}{% raw %}</h2>
+		<div class="row">
+			<div class="col-lg-{{pics.col}} blogPostCreative {{pics.wide}}" ng-repeat="pics in softballmedia">
+                <div class="blogThumb">
+                    <a href="{{pics.imgsrc}}" rel="prettyPhoto"><img ng-src="{{pics.imgsrc}}" alt=""/></a>
+                </div>
+            </div>
+        {% endraw %}
+        </div>
+		<br>
+		<br>
+		<br>
+		<div class="text-center">
+        	<a href="/pages/tourny-gallery" class="button subHeadBtn">VIEW MORE </a>
+        </div>
+</div>
+<br>
+<br>
+</section>

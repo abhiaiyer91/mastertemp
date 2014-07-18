@@ -1,0 +1,22 @@
+{% if settings.homecollection != empty %}
+<h2>{{ collections[settings.homecollection].title }}</h2>
+<ul class="products quarter">
+	{% for product in collections[settings.homecollection].products  %}
+	<li class="{% cycle 'first', 'second', 'third', 'last' %}">
+		<a href="{{ product.url | within: collection }}">
+			<span class="image">
+				{% if product.compare_at_price_max > product.price_max %}<span class="sale-banner">Sale</span>{% endif %}
+				<img src="{{ product.images.first | product_img_url: 'medium' }}" alt="{{ product.title | escape }}">
+			</span>
+			<b>{{ product.title }}</b>
+			<em class="price{% if product.compare_at_price_max > product.price_max %} sale{% endif %}">
+				{% if product.compare_at_price_max > product.price_max %}
+				<del class="compare-at-price">{{product.compare_at_price_max | money }}</del>
+				{% endif %}
+				{{ product.price | money }}
+			</em>
+		</a>
+	</li>
+	{% endfor %}
+</ul>
+{% endif %}

@@ -1,0 +1,65 @@
+<!-- start shop content -->
+<section class="shop">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                {% if cart.item_count > 0 %}
+
+                <form action="/cart" method="post">
+            <h4>YOUR CART ({{ cart.item_count }})</h4><br/>
+          <div class="">
+            <table class="itemTable shop">
+                <tr>
+                    <th>IMAGE</th>
+                    <th>PRODUCT</th>
+                    <th>QUANTITY</th>
+                    <th>PRICE</th>
+                    <th>TOTAL</th>
+                </tr>
+                {% for item in cart.items %}
+                <tr>
+                    <td>
+                    <a class="remove-from-cart-button letters-white inline-block dark-gray-bg" href="/cart/change?line={{ forloop.index }}&quantity=0">x</a>
+                    <a href="#"><img src="{{ item.product.featured_image.src | product_img_url: 'grande' }}" alt="{{ item.title | escape }}" width="80" alt="" /></a><div>
+
+                                        </div></td>
+
+                    <td><a href="{{ item.product.url | within: collections.all }}">{{ item.title }}</a></td>
+                    <td id="responsive-q">
+
+
+                        <input name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" data-min="" data-max="0" title="Qty" maxlength="12" class="cart-width" />
+
+                    </td>
+                    <td>{{ item.price | money }}</td>
+                    <td>{{ item.line_price | money }}</td>
+                </tr>
+
+
+                {%endfor%}
+
+            </table>
+          </div>
+            </div>
+                   <button type="submit" name="update" value="Update cart" class="button grey pull-right">Update Cart</button><br><br>
+
+
+{% include 'cart-totals'%}
+             </form>
+            {% else %}
+<div class="container">
+    <div class="padding-top96 padding-bottom96">
+        <div class="row">
+            <div class="text-center empty-cart">
+                <h2 class="uppercase">You don't have any items in your cart!</h2>
+                <i class="fa fa-shopping-cart fa-5x"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div></div></div></div>
+
+{% endif %}
